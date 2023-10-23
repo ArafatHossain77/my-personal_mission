@@ -107,8 +107,6 @@
                 </tr>
                 </thead>
                 @foreach($userAllData as $userData)
-                    <tr>
-
                         <td>{{$userData->first_name}}</td>
                         <td>{{$userData->last_name}}</td>
                         <td>{{$userData->email}}</td>
@@ -116,18 +114,19 @@
                         <td>{{$userData->country}}</td>
                         <td>{{$userData->dob}}</td>
 
-
-                        <span class="badge  rounded-pill">
-                                  <a href="{{route('index',['first_name'=>$userData->first_name,'last_name'=>$userData->last_name,'email'=>$userData->email,'id'=>$userData->id,'mobile'=>$userData->mobile,'country'=>$userData->country,'dob'=>$userData->dob])}}"
+                      <td>  <span class="badge  rounded-pill">
+                                  <a href="{{route('action',['first_name'=>$userData->first_name,'last_name'=>$userData->last_name,'email'=>$userData->email,'id'=>$userData->id,'mobile'=>$userData->mobile,'country'=>$userData->country,'dob'=>$userData->dob])}}"
                                      class="btn btn-warning btn-sm">Edit</a>
                                   <a href="#"
                                      onclick="event.preventDefault();document.getElementById('delete-to').submit();"
                                      class="btn btn-danger btn-sm">Delete</a>
-                                    <form id="delete-to" method="POST" action="#" method="post" class="d-none">
+                                    <form id="delete-to" method="POST" action="{{route('delete_user',$userData->id)}}" method="post" class="d-none">
                                         @csrf
                                         @method('delete')
                                     </form>
                            </span>
+                      </td>
+                    <tr>
             @endforeach
         </div>
     </div>

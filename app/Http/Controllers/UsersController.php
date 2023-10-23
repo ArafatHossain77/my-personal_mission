@@ -29,8 +29,8 @@ class UsersController extends Controller
 
     public function registration()
     {
-        $userAllData=Users::latest()->get();
-        return view('registration',compact('userAllData'));
+
+        return view('registration');
     }
     public function store(Request $request): RedirectResponse
     {
@@ -72,7 +72,8 @@ class UsersController extends Controller
 
    public function action()
    {
-       return view('action');
+       $userAllData=Users::latest()->get();
+       return view('action',compact('userAllData'));
    }
     public function edit_user()
     {

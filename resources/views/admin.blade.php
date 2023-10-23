@@ -69,76 +69,76 @@
                                         <div class="row pt-1">
                                             <div class="col-6 mb-3">
                                                 <h6>First Name</h6>
-                                                <p class="text-muted">{{$allAdminData[0]['first_name']}}</p>
+                                                <p class="text-muted">#</p>
                                             </div>
                                             <div class="col-6 mb-3">
                                                 <h6>Last Name</h6>
-                                                <p class="text-muted">{{$allAdminData[0]['last_name']}}</p>
+                                                <p class="text-muted">#</p>
                                             </div>
                                         </div>
                                         <div class="row pt-1">
                                             <div class="col-6 mb-3">
                                                 <h6>Email</h6>
-                                                <p class="text-muted">{{$allAdminData[0]['email']}}</p>
+                                                <p class="text-muted">#</p>
                                             </div>
                                             <div class="col-6 mb-3">
                                                 <h6>Mobile</h6>
-                                                <p class="text-muted">{{$allAdminData[0]['mobile']}}</p>
+                                                <p class="text-muted">#</p>
                                             </div>
                                         </div>
                                         <div class="row pt-1">
                                             <div class="col-6 mb-3">
                                                 <h6>Country</h6>
-                                                <p class="text-muted">{{$allAdminData[0]['country']}}</p>
+                                                <p class="text-muted">#</p>
                                             </div>
                                             <div class="col-6 mb-3">
                                                 <h6>Date of Birth</h6>
-                                                <p class="text-muted">{{$allAdminData[0]['dob']}}</p>
+                                                <p class="text-muted">#</p>
                                             </div>
                                         </div>
                                         <div class="row pt-1">
                                             <div class="btn-toolbar justify-content-between" role="toolbar" aria-label="Toolbar with button groups">
                                                 <div class="container">
                                                     <div class="buttons">
-                                                        <a href="{{route('admin_dashboard',
-                                                                                    [
-                                                                                        'id'=>$allAdminData[0]->id,
-                                                                                        'first_name'=>$allAdminData[0]->first_name,
-                                                                                        'last_name'=>$allAdminData[0]->last_name,
-                                                                                        'email'=>$allAdminData[0]->email,
-                                                                                        'mobile'=>$allAdminData[0]->mobile,
-                                                                                        'country'=>$allAdminData[0]->country,
-                                                                                        'dob'=>$allAdminData[0]->dob,
-                                                                                        'user_type'=>$allAdminData[0]->user_type
-                                                                                    ])}}">
-                                                            <button type="button" class="btn btn-success">Edit</button>
-                                                        </a>
-                                                        <a
-                                                            href="#"
-                                                            onclick="event.preventDefault();document.getElementById('delete-to').submit();">
-                                                            <button type="button" class="btn btn-danger">Delete</button>
-                                                        </a>
-                                                        <form id="delete-to" action="{{route('delete_user', $allAdminData[0]->id)}}" method="POST" class="d-none">
-                                                            @method('delete')
-                                                            @csrf
-                                                        </form>
-                                                    </div>
-                                                    <div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </div>
-    </div>
-</body>
+{{--                                                        <a href="{{route('admin_dashboard',--}}
+{{--                                                                                    [--}}
+{{--                                                                                        'id'=>$allAdminData[0]->id,--}}
+{{--                                                                                        'first_name'=>$allAdminData[0]->first_name,--}}
+{{--                                                                                        'last_name'=>$allAdminData[0]->last_name,--}}
+{{--                                                                                        'email'=>$allAdminData[0]->email,--}}
+{{--                                                                                        'mobile'=>$allAdminData[0]->mobile,--}}
+{{--                                                                                        'country'=>$allAdminData[0]->country,--}}
+{{--                                                                                        'dob'=>$allAdminData[0]->dob,--}}
+{{--                                                                                        'user_type'=>$allAdminData[0]->user_type--}}
+{{--                                                                                    ])}}">--}}
+{{--                                                            <button type="button" class="btn btn-success">Edit</button>--}}
+{{--                                                        </a>--}}
+{{--                                                        <a--}}
+{{--                                                            href="#"--}}
+{{--                                                            onclick="event.preventDefault();document.getElementById('delete-to').submit();">--}}
+{{--                                                            <button type="button" class="btn btn-danger">Delete</button>--}}
+{{--                                                        </a>--}}
+{{--                                                        <form id="delete-to" action="{{route('delete_user', $allAdminData[0]->id)}}" method="POST" class="d-none">--}}
+{{--                                                            @method('delete')--}}
+{{--                                                            @csrf--}}
+{{--                                                        </form>--}}
+{{--                                                    </div>--}}
+{{--                                                    <div>--}}
+{{--                                                    </div>--}}
+{{--                                                </div>--}}
+{{--                                            </div>--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--        </section>--}}
+{{--    </div>--}}
+{{--    </div>--}}
+{{--</body>--}}
 
 
 
