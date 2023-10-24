@@ -44,6 +44,7 @@ class UsersController extends Controller
     {
         $credentials = $request->validate([
             'email' => 'required|email',
+
             'password' => 'required'
         ]);
         if(Auth::attempt($credentials))
@@ -55,7 +56,6 @@ class UsersController extends Controller
                 return redirect()->route('user_dashboard');
             }
         }
-
         return redirect()->route('login')->with(['fail' => 'Provided credentials are not valid!']);
     }
 
