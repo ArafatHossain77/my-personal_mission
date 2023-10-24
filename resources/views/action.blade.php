@@ -13,6 +13,11 @@
 <div class="container">
     <nav class="navbar bg-primary" data-bs-theme="dark">
         <div class="container-fluid">
+            @if(isset($user) && $user['user_type'] == 1)
+                <a class="navbar-brand" href="#">Admin Profile</a>
+            @elseif(isset($user) && $user['user_type'] == 2)
+                <a class="navbar-brand" href="#">User Profile</a>
+            @endif
             <a class="navbar-brand" href="#">User Action</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -36,7 +41,7 @@
         <div class="card-header">
             <h2>Info Desk</h2>
         </div>
-        <form method="POST" action="{{route('storeData',request()->has('id'))}}">
+        <form method="POST" action="{{route('update_user',request()->has('id'))}}">
             @method('put')
             @csrf
             <div class="row mb-3 mt-3">
@@ -78,60 +83,104 @@
             <div class="row mb-3">
                 <label for="inputPassword3" class="col-sm-2 col-form-label"><h5>Date of Birth :</h5></label>
                 <div class="col-sm-10">
+                    @if(isset($user) && $user['user_type'] == 2)
                     <input type="date"  value="{{request()->dob}}"name="dob" class="form-control" id="inputPassword3">
                     <input type="hidden" name="id" value="{{request()->id}}">
+                    @else
+                    <input type="date"  value="{{request()->dob}}"name="dob" class="form-control" id="inputPassword3">
+                    <input type="hidden" name="id" value="{{request()->id}}">
+                    @endif
                 </div>
             </div>
             <button type="submit" name="add" class="text-bg-info p-3">UPDATE INFO</button>
         </form>
         @if (\Session::has('success'))
             <div class="alert alert-success">{!! \Session::get('success') !!} </div>
-            @endif
-            </form>
+        @endif
+
     </div>
 </div>
-<div class="container mt-5">
-    <div class="card-header">
-        <div class="card p-5 mt-5 mb-5">
-            <h2>  User Info </h2>
-            <table class="table table-bordered mt-3 p-5 mb-5">
-                <thead>
-                <tr>
-                    <th scope="col">First Name</th>
-                    <th scope="col">Last Name</th>
-                    <th scope="col">EMAIL</th>
-                    <th scope="col">Mobile</th>
-                    <th scope="col">country</th>
-                    <th scope="col">Date of Birth</th>
-                    <th scope="col">BIN</th>
-                </tr>
-                </thead>
-                @foreach($userAllData as $userData)
-                        <td>{{$userData->first_name}}</td>
-                        <td>{{$userData->last_name}}</td>
-                        <td>{{$userData->email}}</td>
-                        <td>{{$userData->mobile}}</td>
-                        <td>{{$userData->country}}</td>
-                        <td>{{$userData->dob}}</td>
+{{--<div class="container mt-5">--}}
+{{--    <div class="card-header">--}}
+{{--        <div class="card p-5 mt-5 mb-5">--}}
+{{--            <h2>  User Info </h2>--}}
+{{--            <table class="table table-bordered mt-3 p-5 mb-5">--}}
+{{--                <thead>--}}
+{{--                <tr>--}}
+{{--                    <th scope="col">First Name</th>--}}
+{{--                    <th scope="col">Last Name</th>--}}
+{{--                    <th scope="col">EMAIL</th>--}}
+{{--                    <th scope="col">Mobile</th>--}}
+{{--                    <th scope="col">country</th>--}}
+{{--                    <th scope="col">Date of Birth</th>--}}
+{{--                    <th scope="col">BIN</th>--}}
+{{--                </tr>--}}
+{{--                </thead>--}}
+{{--                @foreach($userAllData as $userData)--}}
+{{--                        <td>{{$userData->first_name}}</td>--}}
+{{--                        <td>{{$userData->last_name}}</td>--}}
+{{--                        <td>{{$userData->email}}</td>--}}
+{{--                        <td>{{$userData->mobile}}</td>--}}
+{{--                        <td>{{$userData->country}}</td>--}}
+{{--                        <td>{{$userData->dob}}</td>--}}
 
-                      <td>  <span class="badge  rounded-pill">
-                                  <a href="{{route('action',['first_name'=>$userData->first_name,'last_name'=>$userData->last_name,'email'=>$userData->email,'id'=>$userData->id,'mobile'=>$userData->mobile,'country'=>$userData->country,'dob'=>$userData->dob])}}"
-                                     class="btn btn-warning btn-sm">Edit</a>
-                                  <a href="#"
-                                     onclick="event.preventDefault();document.getElementById('delete-to').submit();"
-                                     class="btn btn-danger btn-sm">Delete</a>
-                                    <form id="delete-to" method="POST" action="{{route('delete_user',$userData->id)}}" method="post" class="d-none">
-                                        @csrf
-                                        @method('delete')
-                                    </form>
-                           </span>
-                      </td>
-                    <tr>
-            @endforeach
+{{--                      <td>  <span class="badge  rounded-pill">--}}
+{{--                                  <a href="{{route('action',['first_name'=>$userData->first_name,'last_name'=>$userData->last_name,'email'=>$userData->email,'id'=>$userData->id,'mobile'=>$userData->mobile,'country'=>$userData->country,'dob'=>$userData->dob])}}"--}}
+{{--                                     class="btn btn-warning btn-sm">Edit</a>--}}
+{{--                                  <a href="#"--}}
+{{--                                     onclick="event.preventDefault();document.getElementById('delete-to').submit();"--}}
+{{--                                     class="btn btn-danger btn-sm">Delete</a>--}}
+{{--                                    <form id="delete-to" method="POST" action="{{route('delete_user',$userData->id)}}" method="post" class="d-none">--}}
+{{--                                        @csrf--}}
+{{--                                        @method('delete')--}}
+{{--                                    </form>--}}
+{{--                           </span>--}}
+{{--                      </td>--}}
+{{--                    <tr>--}}
+{{--            @endforeach--}}
+{{--        </div>--}}
+{{--    </div>--}}
+{{--</div>--}}
+{{--</div>--}}
+
+<div class="row mb-3">
+    <div class="btn-toolbar justify-content-between" role="toolbar" aria-label="Toolbar with button groups">
+        <div class="container d-flex justify-content-center">
+            <div class="buttons">
+                <button type="submit" class="btn btn-success">Update</button>
+            </div>
+            <div>
+            </div>
         </div>
     </div>
 </div>
 </div>
+</form>
+<div class="row mb-3">
+    <div class="btn-toolbar justify-content-between" role="toolbar" aria-label="Toolbar with button groups">
+        <div class="container d-flex justify-content-center">
+            <div class="buttons">
+                <a
+                    href="#"
+                    onclick="event.preventDefault();document.getElementById('delete-to').submit();"
+                >
+                    <button type="button" class="btn btn-danger">Delete</button>
+                </a>
+                @if(isset($user) && $user['user_type'] == 1)
+                    <form id="delete-to" action="{{route('delete_user', $user->id)}}" method="POST" class="d-none">
+                        @method('delete')
+                        @csrf
+                    </form>
+                @elseif(isset($user) && $user['user_type'] == 2)
+                    <form id="delete-to" action="{{route('delete_user', $user->id)}}" method="POST" class="d-none">
+                        @method('delete')
+                        @csrf
+                    </form>
+                @endif
+            </div>
+            <div>
+            </div>
+        </div>
 
 
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>

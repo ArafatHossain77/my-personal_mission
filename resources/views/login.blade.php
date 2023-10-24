@@ -36,10 +36,10 @@
                                 <input type="password"  name="password" id="form2Example28" class="form-control form-control-lg" placeholder="type your password.." />
                             </div>
 
-{{--                            <div class="form-check form-switch">--}}
-{{--                                <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>--}}
-{{--                                <label class="form-check-label" for="remember">{{ __('Remember Me') }}</label>--}}
-{{--                            </div>--}}
+                            <div class="form-check form-switch">
+                                <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
+                                <label class="form-check-label" for="remember">{{ __('Remember Me') }}</label>
+                            </div>
 
                             <div class="pt-1 mb-4">
                                 <button class="btn btn-info btn-lg btn-block" type="submit">Login</button>

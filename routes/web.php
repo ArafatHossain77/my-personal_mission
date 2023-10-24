@@ -29,17 +29,13 @@ Route::post('/store', [\App\Http\Controllers\UsersController::class, 'store'])->
 
 
 Route::post('/login_dashboard', [App\Http\Controllers\UsersController::class, 'login_dashboard'])->name('login_dashboard');
-Route::get('/user', [\App\Http\Controllers\UsersController::class, 'user'])->name('user_dashboard');
-Route::get('/admin', [\App\Http\Controllers\UsersController::class, 'admin'])->name('admin_dashboard');
+Route::get('/user', [\App\Http\Controllers\UsersController::class, 'user'])->name('user_dashboard')->middleware('auth');;
+Route::get('/admin', [\App\Http\Controllers\UsersController::class, 'admin'])->name('admin_dashboard')->middleware('auth');;
 
 
 Route::put('/update/{id}', [App\Http\Controllers\UsersController:: class, 'update_user'])->name('update_user');
 Route::get('/edit_user', [App\Http\Controllers\UsersController::class, 'edit_user'])->name('edit_user');
 Route::delete('/delete/{id}', [App\Http\Controllers\UsersController::class, 'destroy'])->name('delete_user');
 
-
-
-Route::get('/admin_login', [App\Http\Controllers\UsersController::class, 'admin_login'])->name('admin_login')->middleware('auth');
-Route::get('/user_login', [App\Http\Controllers\UsersController::class, 'user_login'])->name('user_login')->middleware('auth');
 
 

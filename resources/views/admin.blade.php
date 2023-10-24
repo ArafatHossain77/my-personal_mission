@@ -49,9 +49,9 @@
             </div>
         </nav>
     </div>
-
+ <br>
     <div class="container-fluid">
-        <section class="vh-100" style="background-color: #1e55c4;">
+        <section class="vh-100" style="background-color: #336ce5;">
             <div class="container py-5 h-100">
                 <div class="row d-flex justify-content-center align-items-center h-100">
                     <div class="col col-lg-6 mb-4 mb-lg-0">
@@ -64,86 +64,82 @@
                                 </div>
                                 <div class="col-md-8">
                                     <div class="card-body p-4">
-                                        <h3>User Info </h3>
+                                        <h3>User Information</h3>
                                         <hr class="mt-0 mb-4">
                                         <div class="row pt-1">
                                             <div class="col-6 mb-3">
                                                 <h6>First Name</h6>
-                                                <p class="text-muted">#</p>
+                                                <p class="text-muted">{{$user['first_name']}}</p>
                                             </div>
                                             <div class="col-6 mb-3">
                                                 <h6>Last Name</h6>
-                                                <p class="text-muted">#</p>
+                                                <p class="text-muted">{{$user['last_name']}}</p>
                                             </div>
                                         </div>
                                         <div class="row pt-1">
                                             <div class="col-6 mb-3">
                                                 <h6>Email</h6>
-                                                <p class="text-muted">#</p>
+                                                <p class="text-muted">{{$user['email']}}</p>
                                             </div>
                                             <div class="col-6 mb-3">
                                                 <h6>Mobile</h6>
-                                                <p class="text-muted">#</p>
+                                                <p class="text-muted">{{$user['mobile']}}</p>
                                             </div>
                                         </div>
                                         <div class="row pt-1">
                                             <div class="col-6 mb-3">
                                                 <h6>Country</h6>
-                                                <p class="text-muted">#</p>
+                                                <p class="text-muted">{{$user['country']}}</p>
                                             </div>
                                             <div class="col-6 mb-3">
                                                 <h6>Date of Birth</h6>
-                                                <p class="text-muted">#</p>
+                                                <p class="text-muted">{{$user['dob']}}</p>
                                             </div>
                                         </div>
+
                                         <div class="row pt-1">
                                             <div class="btn-toolbar justify-content-between" role="toolbar" aria-label="Toolbar with button groups">
                                                 <div class="container">
                                                     <div class="buttons">
-{{--                                                        <a href="{{route('admin_dashboard',--}}
-{{--                                                                                    [--}}
-{{--                                                                                        'id'=>$allAdminData[0]->id,--}}
-{{--                                                                                        'first_name'=>$allAdminData[0]->first_name,--}}
-{{--                                                                                        'last_name'=>$allAdminData[0]->last_name,--}}
-{{--                                                                                        'email'=>$allAdminData[0]->email,--}}
-{{--                                                                                        'mobile'=>$allAdminData[0]->mobile,--}}
-{{--                                                                                        'country'=>$allAdminData[0]->country,--}}
-{{--                                                                                        'dob'=>$allAdminData[0]->dob,--}}
-{{--                                                                                        'user_type'=>$allAdminData[0]->user_type--}}
-{{--                                                                                    ])}}">--}}
-{{--                                                            <button type="button" class="btn btn-success">Edit</button>--}}
-{{--                                                        </a>--}}
-{{--                                                        <a--}}
-{{--                                                            href="#"--}}
-{{--                                                            onclick="event.preventDefault();document.getElementById('delete-to').submit();">--}}
-{{--                                                            <button type="button" class="btn btn-danger">Delete</button>--}}
-{{--                                                        </a>--}}
-{{--                                                        <form id="delete-to" action="{{route('delete_user', $allAdminData[0]->id)}}" method="POST" class="d-none">--}}
-{{--                                                            @method('delete')--}}
-{{--                                                            @csrf--}}
-{{--                                                        </form>--}}
-{{--                                                    </div>--}}
-{{--                                                    <div>--}}
-{{--                                                    </div>--}}
-{{--                                                </div>--}}
-{{--                                            </div>--}}
-{{--                                        </div>--}}
-{{--                                    </div>--}}
-{{--                                </div>--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
-{{--            </div>--}}
-{{--        </section>--}}
-{{--    </div>--}}
-{{--    </div>--}}
-{{--</body>--}}
-
-
-
-
-
+                                                        <a href="{{route('edit_user',
+                                                                                    [
+                                                                                        'id'=>$user->id,
+                                                                                        'first_name'=>$user->first_name,
+                                                                                        'last_name'=>$user->last_name,
+                                                                                        'email'=>$user->email,
+                                                                                        'mobile'=>$user->mobile,
+                                                                                        'country'=>$user->country,
+                                                                                        'dob'=>$user->dob,
+                                                                                        'user_type'=>$user->user_type
+                                                                                    ])}}">
+                                                            <button type="button" class="btn btn-success">Edit</button>
+                                                        </a>
+                                                        <a
+                                                            href="#"
+                                                            onclick="event.preventDefault();document.getElementById('delete-to').submit();"
+                                                        >
+                                                            <button type="button" class="btn btn-danger">Delete</button>
+                                                        </a>
+                                                        <form id="delete-to" action="{{route('delete_user', $user->id)}}" method="POST" class="d-none">
+                                                            @method('delete')
+                                                            @csrf
+                                                        </form>
+                                                    </div>
+                                                    <div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</body>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
 </body>

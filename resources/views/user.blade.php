@@ -39,9 +39,6 @@
                                 <li><a class="dropdown-item" href="#">About Us</a></li>
                             </ul>
                         </li>
-{{--                        <li class="nav-item">--}}
-{{--                            <a class="nav-link disabled" aria-disabled="true">Disabled</a>--}}
-{{--                        </li>--}}
                     </ul>
                     <form class="d-flex p-2" role="search">
                         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
@@ -51,96 +48,96 @@
             </div>
         </nav>
     </div>
+    <div class="container-fluid mt-3">
+        <section class="vh-100" style="background-color: rgb(39,95,206);">
+            <div class="container py-5 h-100">
+                <div class="row d-flex justify-content-center align-items-center h-100">
+                    <div class="col col-lg-6 mb-4 mb-lg-0">
+                        <div class="card mb-3" style="border-radius: .5rem;">
+                            <div class="row g-0">
+                                <div class="col-md-4 gradient-custom text-center text-white"
+                                     style="border-top-left-radius: .5rem; border-bottom-left-radius: .5rem;">
+                                    {{--                                    <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava1-bg.webp"--}}
+                                    {{--                                         alt="Avatar" class="img-fluid my-5" style="width: 80px;" />--}}
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="card-body p-4">
+                                        <h3>User Information</h3>
+                                        <hr class="mt-0 mb-4">
+                                        <div class="row pt-1">
+                                            <div class="col-6 mb-3">
+                                                <h6>First Name</h6>
+                                                <p class="text-muted">{{$user['first_name']}}</p>
+                                            </div>
+                                            <div class="col-6 mb-3">
+                                                <h6>Last Name</h6>
+                                                <p class="text-muted">{{$user['last_name']}}</p>
+                                            </div>
+                                        </div>
+                                        <div class="row pt-1">
+                                            <div class="col-6 mb-3">
+                                                <h6>Email</h6>
+                                                <p class="text-muted">{{$user['email']}}</p>
+                                            </div>
+                                            <div class="col-6 mb-3">
+                                                <h6>Mobile</h6>
+                                                <p class="text-muted">{{$user['mobile']}}</p>
+                                            </div>
+                                        </div>
+                                        <div class="row pt-1">
+                                            <div class="col-6 mb-3">
+                                                <h6>Country</h6>
+                                                <p class="text-muted">{{$user['country']}}</p>
+                                            </div>
+                                            <div class="col-6 mb-3">
+                                                <h6>Date of Birth</h6>
+                                                <p class="text-muted">{{$user['dob']}}</p>
+                                            </div>
+                                        </div>
 
-{{--    <div class="container-fluid mt-3">--}}
-{{--        <section class="vh-100" style="background-color: #275fce;">--}}
-{{--            <div class="container py-5 h-100">--}}
-{{--                <div class="row d-flex justify-content-center align-items-center h-100">--}}
-{{--                    <div class="col col-lg-6 mb-4 mb-lg-0">--}}
-{{--                        <div class="card mb-3" style="border-radius: .5rem;">--}}
-{{--                            <div class="row g-0">--}}
-{{--                                <div class="col-md-4 gradient-custom text-center text-white"--}}
-{{--                                     style="border-top-left-radius: .5rem; border-bottom-left-radius: .5rem;">--}}
-{{--                                    <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava1-bg.webp"--}}
-{{--                                         alt="Avatar" class="img-fluid my-5" style="width: 80px;" />--}}
-{{--                                </div>--}}
-{{--                                <div class="col-md-8">--}}
-{{--                                    <div class="card-body p-4">--}}
-{{--                                        <h3>User Info</h3>--}}
-{{--                                        <hr class="mt-0 mb-4">--}}
-{{--                                        <div class="row pt-1">--}}
-{{--                                            <div class="col-6 mb-3">--}}
-{{--                                                <h6>First Name</h6>--}}
-{{--                                                <p class="text-muted">{{$allUserData[0]['first_name']}}</p>--}}
-{{--                                            </div>--}}
-{{--                                            <div class="col-6 mb-3">--}}
-{{--                                                <h6>Last Name</h6>--}}
-{{--                                                <p class="text-muted">{{$allUserData[0]['last_name']}}</p>--}}
-{{--                                            </div>--}}
-{{--                                        </div>--}}
-{{--                                        <div class="row pt-1">--}}
-{{--                                            <div class="col-6 mb-3">--}}
-{{--                                                <h6>Email</h6>--}}
-{{--                                                <p class="text-muted">{{$allUserData[0]['email']}}</p>--}}
-{{--                                            </div>--}}
-{{--                                            <div class="col-6 mb-3">--}}
-{{--                                                <h6>Mobile</h6>--}}
-{{--                                                <p class="text-muted">{{$allUserData[0]['mobile']}}</p>--}}
-{{--                                            </div>--}}
-{{--                                        </div>--}}
-{{--                                        <div class="row pt-1">--}}
-{{--                                            <div class="col-6 mb-3">--}}
-{{--                                                <h6>Country</h6>--}}
-{{--                                                <p class="text-muted">{{$allUserData[0]['country']}}</p>--}}
-{{--                                            </div>--}}
-{{--                                            <div class="col-6 mb-3">--}}
-{{--                                                <h6>Date of Birth</h6>--}}
-{{--                                                <p class="text-muted">{{$allUserData[0]['dob']}}</p>--}}
-{{--                                            </div>--}}
-{{--                                        </div>--}}
-{{--                                        <div class="row pt-1">--}}
-{{--                                            <div class="btn-toolbar justify-content-between" role="toolbar" aria-label="Toolbar with button groups">--}}
-{{--                                                <div class="container">--}}
-{{--                                                    <div class="buttons">--}}
-{{--                                                        <a href="{{route('edit_user',--}}
-{{--                                                                                    [--}}
-{{--                                                                                        'id'=>$allUserData[0]->id,--}}
-{{--                                                                                        'first_name'=>$allUserData[0]->first_name,--}}
-{{--                                                                                        'last_name'=>$allUserData[0]->last_name,--}}
-{{--                                                                                        'email'=>$allUserData[0]->email,--}}
-{{--                                                                                        'mobile'=>$allUserData[0]->mobile,--}}
-{{--                                                                                        'country'=>$allUserData[0]->country,--}}
-{{--                                                                                        'dob'=>$allUserData[0]->dob,--}}
-{{--                                                                                        'user_type'=>$allUserData[0]->user_type--}}
-{{--                                                                                    ])}}">--}}
-{{--                                                            <button type="button" class="btn btn-success">Edit</button>--}}
-{{--                                                        </a>--}}
-{{--                                                        <a--}}
-{{--                                                            href="#"--}}
-{{--                                                            onclick="event.preventDefault();document.getElementById('delete-to').submit();">--}}
-{{--                                                            <button type="button" class="btn btn-danger">Delete</button>--}}
-{{--                                                        </a>--}}
-{{--                                                        <form id="delete-to" action="{{route('delete_user', $allUserData[0]->id)}}" method="POST" class="d-none">--}}
-{{--                                                            @method('delete')--}}
-{{--                                                            @csrf--}}
-{{--                                                        </form>--}}
-{{--                                                    </div>--}}
-{{--                                                    <div>--}}
-{{--                                                    </div>--}}
-{{--                                                </div>--}}
-{{--                                            </div>--}}
-{{--                                        </div>--}}
-{{--                                    </div>--}}
-{{--                                </div>--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
-{{--            </div>--}}
-{{--        </section>--}}
-{{--       </div>--}}
-{{--    </div>--}}
-{{--</body>--}}
+                                        <div class="row pt-1">
+                                            <div class="btn-toolbar justify-content-between" role="toolbar" aria-label="Toolbar with button groups">
+                                                <div class="container">
+                                                    <div class="buttons">
+                                                        <a href="{{route('edit_user',
+                                                                                    [
+                                                                                        'id'=>$user->id,
+                                                                                        'first_name'=>$user->first_name,
+                                                                                        'last_name'=>$user->last_name,
+                                                                                        'email'=>$user->email,
+                                                                                        'mobile'=>$user->mobile,
+                                                                                        'country'=>$user->country,
+                                                                                        'dob'=>$user->dob,
+                                                                                        'user_type'=>$user->user_type
+                                                                                    ])}}">
+                                                            <button type="button" class="btn btn-success">Edit</button>
+                                                        </a>
+                                                        <a
+                                                            href="#"
+                                                            onclick="event.preventDefault();document.getElementById('delete-to').submit();"
+                                                        >
+                                                            <button type="button" class="btn btn-danger">Delete</button>
+                                                        </a>
+                                                        <form id="delete-to" action="{{route('delete_user', $user->id)}}" method="POST" class="d-none">
+                                                            @method('delete')
+                                                            @csrf
+                                                        </form>
+                                                    </div>
+                                                    <div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</body>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
 </body>

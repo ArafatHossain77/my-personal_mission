@@ -29,7 +29,6 @@ class UsersController extends Controller
 
     public function registration()
     {
-
         return view('registration');
     }
     public function store(Request $request): RedirectResponse
@@ -47,10 +46,10 @@ class UsersController extends Controller
             'email' => 'required|email',
             'password' => 'required'
         ]);
-        if (Auth::attempt($credentials)) {
+        if(Auth::attempt($credentials))
+        {
             $request->session()->regenerate();
-            $userAllData = User::where('email', $credentials['email'])->first();
-            if ($userAllData->user_type == 1) {
+            if (Auth::user()->user_type == 1) {
                 return redirect()->route('admin_dashboard');
             } else {
                 return redirect()->route('user_dashboard');
@@ -62,12 +61,14 @@ class UsersController extends Controller
 
     public function user()
     {
-        return view('user');
+        $user = Auth::user();
+        return view('user',compact('user'));
     }
 
     public function admin()
     {
-        return view('admin');
+        $user = Auth::user();
+        return view('admin',compact('user'));
     }
 
    public function action()
@@ -78,11 +79,11 @@ class UsersController extends Controller
     public function edit_user()
     {
         if (auth()->user()-> User_Type == 1) {
-            $allAdminData = Users::where('email', auth()->user()->email)->latest()->get();
-            return view('edit_user', compact('allAdminData'));
+            $userAlldata = Users::where('email', auth()->user()->email)->latest()->get();
+            return view('action', compact('userAlldata'));
         } elseif (auth()->user()->user_type == 2) {
-            $allUserData = Users::where('email', auth()->user()->email)->latest()->get();
-            return view('edit_user', compact('allUserData'));
+            $userAlldata = Users::where('email', auth()->user()->email)->latest()->get();
+            return view('action', compact('userAlldata'));
         }
     }
 
@@ -92,9 +93,9 @@ class UsersController extends Controller
       Users::where('id', $id)->delete();
         return redirect()->route("registration")->with('success','Your info deleted  successfully in Database');
     }
-    public function update(Request $request): RedirectResponse
+    public function update_user(Request $request): RedirectResponse
     {
        Users::where('id', $request->id)->update($request->only('first_name', 'last_name', 'email', 'mobile', 'country', 'dob'));
-        return redirect()->route("registration")->with('success','Your info updated   successfully in Database');
+        return redirect()->route("action")->with('success','Your info updated   successfully in Database');
     }
 }
