@@ -20,7 +20,7 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="{{route('user_dashboard')}}">User Profile</a>
+                            <a class="nav-link active" aria-current="page" href="{{route('login')}}">Logout To Admin</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{{route('admin_dashboard')}}">Profile</a>
@@ -30,17 +30,13 @@
                                 Dropdown
                             </a>
                             <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="{{route('action')}}">Action</a></li>
-                                <li><hr class="dropdown-divider"></li>
+{{--                                <li><a class="dropdown-item" href="{{route('action')}}">Action</a></li>--}}
+{{--                                <li><hr class="dropdown-divider"></li>--}}
                                 <li><a class="dropdown-item" href="{{route('registration')}}">New Registration</a></li>
                                 <li><hr class="dropdown-divider"></li>
                                 <li><a class="dropdown-item" href="#">About Us</a></li>
                             </ul>
                         </li>
-                        {{--                        <li class="nav-item">--}}
-                        {{--                            <a class="nav-link disabled" aria-disabled="true">Disabled</a>--}}
-                        {{--                        </li>--}}
-                    </ul>
                     <form class="d-flex p-2" role="search">
                         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
                         <button class="btn btn-outline-warning" type="submit">Search</button>
@@ -50,7 +46,7 @@
         </nav>
     </div>
  <br>
-    <div class="container-fluid">
+                <div class="container-fluid">
         <section class="vh-100" style="background-color: #336ce5;">
             <div class="container py-5 h-100">
                 <div class="row d-flex justify-content-center align-items-center h-100">
@@ -59,12 +55,13 @@
                             <div class="row g-0">
                                 <div class="col-md-4 gradient-custom text-center text-white"
                                      style="border-top-left-radius: .5rem; border-bottom-left-radius: .5rem;">
-{{--                                    <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava1-bg.webp"--}}
-{{--                                         alt="Avatar" class="img-fluid my-5" style="width: 80px;" />--}}
+                                    <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp" alt="avatar"
+                                         class="rounded-circle img-fluid" style="width: 150px;"/>
                                 </div>
+                                <br>
                                 <div class="col-md-8">
                                     <div class="card-body p-4">
-                                        <h3>User Information</h3>
+                                        <h3>Admin Profile</h3>
                                         <hr class="mt-0 mb-4">
                                         <div class="row pt-1">
                                             <div class="col-6 mb-3">
@@ -101,7 +98,7 @@
                                             <div class="btn-toolbar justify-content-between" role="toolbar" aria-label="Toolbar with button groups">
                                                 <div class="container">
                                                     <div class="buttons">
-                                                        <a href="{{route('edit_user',
+                                                        <a href="{{route('action',
                                                                                     [
                                                                                         'id'=>$user->id,
                                                                                         'first_name'=>$user->first_name,
@@ -118,8 +115,14 @@
                                                             href="#"
                                                             onclick="event.preventDefault();document.getElementById('delete-to').submit();"
                                                         >
-                                                            <button type="button" class="btn btn-danger">Delete</button>
+                                                            <button  onclick="myFunction()" type="button" class="btn btn-danger">Delete</button>
                                                         </a>
+                                                        <script>
+                                                            function myFunction() {
+                                                                alert("Are you sure ?");
+                                                            }
+                                                        </script>
+
                                                         <form id="delete-to" action="{{route('delete_user', $user->id)}}" method="POST" class="d-none">
                                                             @method('delete')
                                                             @csrf
@@ -138,6 +141,7 @@
                 </div>
             </div>
         </section>
+
     </div>
 </body>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>

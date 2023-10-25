@@ -16,16 +16,16 @@
             @if(isset($user) && $user['user_type'] == 1)
                 <a class="navbar-brand" href="#">Admin Profile</a>
             @elseif(isset($user) && $user['user_type'] == 2)
-                <a class="navbar-brand" href="#">User Profile</a>
+                <a class="navbar-brand" href="#">Update Your Info</a>
             @endif
-            <a class="navbar-brand" href="#">User Action</a>
+            <a class="navbar-brand" href="#">User Profile</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link" href="{{route('admin_dashboard')}}">Back to Admin Profile</a>
+                        <a class="nav-link" href="{{route('user_dashboard')}}">Back To User</a>
                     </li>
                 </ul>
                 <form class="d-flex p-2" role="search">
@@ -36,11 +36,17 @@
         </div>
     </nav>
 </div>
-<div class="container mt-5">
+
+
+<div class="card text-bg-info p-3 mb-3 mt-4">
+<div class="container mt-5 mb-5">
     <div class="card p-5">
         <div class="card-header">
             <h2>Info Desk</h2>
         </div>
+        @if (\Session::has('success'))
+            <div class="alert alert-success">{!! \Session::get('success') !!} </div>
+        @endif
         <form method="POST" action="{{route('update_user',request()->has('id'))}}">
             @method('put')
             @csrf
@@ -94,11 +100,8 @@
             </div>
             <button type="submit" name="add" class="text-bg-info p-3">UPDATE INFO</button>
         </form>
-        @if (\Session::has('success'))
-            <div class="alert alert-success">{!! \Session::get('success') !!} </div>
-        @endif
-
     </div>
+</div>
 </div>
 {{--<div class="container mt-5">--}}
 {{--    <div class="card-header">--}}
@@ -143,46 +146,44 @@
 {{--</div>--}}
 {{--</div>--}}
 
-<div class="row mb-3">
-    <div class="btn-toolbar justify-content-between" role="toolbar" aria-label="Toolbar with button groups">
-        <div class="container d-flex justify-content-center">
-            <div class="buttons">
-                <button type="submit" class="btn btn-success">Update</button>
-            </div>
-            <div>
-            </div>
-        </div>
-    </div>
-</div>
-</div>
-</form>
-<div class="row mb-3">
-    <div class="btn-toolbar justify-content-between" role="toolbar" aria-label="Toolbar with button groups">
-        <div class="container d-flex justify-content-center">
-            <div class="buttons">
-                <a
-                    href="#"
-                    onclick="event.preventDefault();document.getElementById('delete-to').submit();"
-                >
-                    <button type="button" class="btn btn-danger">Delete</button>
-                </a>
-                @if(isset($user) && $user['user_type'] == 1)
-                    <form id="delete-to" action="{{route('delete_user', $user->id)}}" method="POST" class="d-none">
-                        @method('delete')
-                        @csrf
-                    </form>
-                @elseif(isset($user) && $user['user_type'] == 2)
-                    <form id="delete-to" action="{{route('delete_user', $user->id)}}" method="POST" class="d-none">
-                        @method('delete')
-                        @csrf
-                    </form>
-                @endif
-            </div>
-            <div>
-            </div>
-        </div>
-
-
+{{--<div class="row mb-3">--}}
+{{--    <div class="btn-toolbar justify-content-between" role="toolbar" aria-label="Toolbar with button groups">--}}
+{{--        <div class="container d-flex justify-content-center">--}}
+{{--            <div class="buttons">--}}
+{{--                <button type="submit" class="btn btn-success">Update</button>--}}
+{{--            </div>--}}
+{{--            <div>--}}
+{{--            </div>--}}
+{{--        </div>--}}
+{{--    </div>--}}
+{{--</div>--}}
+{{--</div>--}}
+{{--</form>--}}
+{{--<div class="row mb-3">--}}
+{{--    <div class="btn-toolbar justify-content-between" role="toolbar" aria-label="Toolbar with button groups">--}}
+{{--        <div class="container d-flex justify-content-center">--}}
+{{--            <div class="buttons">--}}
+{{--                <a--}}
+{{--                    href="#"--}}
+{{--                    onclick="event.preventDefault();document.getElementById('delete-to').submit();"--}}
+{{--                >--}}
+{{--                    <button type="button" class="btn btn-danger">Delete</button>--}}
+{{--                </a>--}}
+{{--                @if(isset($user) && $user['user_type'] == 1)--}}
+{{--                    <form id="delete-to" action="{{route('delete_user', $user->id)}}" method="POST" class="d-none">--}}
+{{--                        @method('delete')--}}
+{{--                        @csrf--}}
+{{--                    </form>--}}
+{{--                @elseif(isset($user) && $user['user_type'] == 2)--}}
+{{--                    <form id="delete-to" action="{{route('delete_user', $user->id)}}" method="POST" class="d-none">--}}
+{{--                        @method('delete')--}}
+{{--                        @csrf--}}
+{{--                    </form>--}}
+{{--                @endif--}}
+{{--            </div>--}}
+{{--            <div>--}}
+{{--            </div>--}}
+{{--        </div>--}}
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
 </body>

@@ -19,6 +19,7 @@ Route::get('/', function () {
 
 
 Route::get('/action', [App\Http\Controllers\UsersController::class, 'action'])->name('action');
+Route::post('/logout', [App\Http\Controllers\UsersController::class, 'logout'])->name('logout');
 
 
 Route::get('/', [App\Http\Controllers\UsersController::class, 'home'])->name('home');
@@ -29,8 +30,8 @@ Route::post('/store', [\App\Http\Controllers\UsersController::class, 'store'])->
 
 
 Route::post('/login_dashboard', [App\Http\Controllers\UsersController::class, 'login_dashboard'])->name('login_dashboard');
-Route::get('/user', [\App\Http\Controllers\UsersController::class, 'user'])->name('user_dashboard')->middleware('auth');;
-Route::get('/admin', [\App\Http\Controllers\UsersController::class, 'admin'])->name('admin_dashboard')->middleware('auth');;
+Route::get('/user', [\App\Http\Controllers\UsersController::class, 'user'])->name('user_dashboard')->middleware('auth');
+Route::get('/admin', [\App\Http\Controllers\UsersController::class, 'admin'])->name('admin_dashboard')->middleware('auth');
 
 
 Route::put('/update/{id}', [App\Http\Controllers\UsersController:: class, 'update_user'])->name('update_user');

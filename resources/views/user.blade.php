@@ -19,9 +19,9 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="{{route('home')}}">Home</a>
-                        </li>
+{{--                        <li class="nav-item">--}}
+{{--                            <a class="nav-link active" aria-current="page" href="{{route('home')}}">Home</a>--}}
+{{--                        </li>--}}
                         <li class="nav-item">
                             <a class="nav-link" href="{{route('user_dashboard')}}">Profile</a>
                         </li>
@@ -30,8 +30,8 @@
                                 Dropdown
                             </a>
                             <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="{{route('admin_dashboard')}}">Admin Settings</a></li>
-                                <li><hr class="dropdown-divider"></li>
+{{--                                <li><a class="dropdown-item" href="{{route('admin_dashboard')}}">Admin Settings</a></li>--}}
+{{--                                <li><hr class="dropdown-divider"></li>--}}
                                 <li><a class="dropdown-item" href="{{route('registration')}}">New Registration</a></li>
                                 <li><hr class="dropdown-divider"></li>
                                 <li><a class="dropdown-item" href="{{route('login')}}">Log Out</a></li>
@@ -57,12 +57,12 @@
                             <div class="row g-0">
                                 <div class="col-md-4 gradient-custom text-center text-white"
                                      style="border-top-left-radius: .5rem; border-bottom-left-radius: .5rem;">
-                                    {{--                                    <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava1-bg.webp"--}}
-                                    {{--                                         alt="Avatar" class="img-fluid my-5" style="width: 80px;" />--}}
+                                    <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp" alt="avatar"
+                                         class="rounded-circle img-fluid" style="width: 150px;"/>
                                 </div>
                                 <div class="col-md-8">
                                     <div class="card-body p-4">
-                                        <h3>User Information</h3>
+                                        <h3>User Profile</h3>
                                         <hr class="mt-0 mb-4">
                                         <div class="row pt-1">
                                             <div class="col-6 mb-3">
@@ -94,34 +94,101 @@
                                                 <p class="text-muted">{{$user['dob']}}</p>
                                             </div>
                                         </div>
+                                        <hr class="mt-0 mb-3">
+                                        <div class="col-auto">
+                                            <span id="textExample2" class="form-text"> Edit & Update access only for Admin.Do you want sent request to Admin for Update info? </span>
+                                        </div>
 
-                                        <div class="row pt-1">
-                                            <div class="btn-toolbar justify-content-between" role="toolbar" aria-label="Toolbar with button groups">
-                                                <div class="container">
-                                                    <div class="buttons">
-                                                        <a href="{{route('edit_user',
-                                                                                    [
-                                                                                        'id'=>$user->id,
-                                                                                        'first_name'=>$user->first_name,
-                                                                                        'last_name'=>$user->last_name,
-                                                                                        'email'=>$user->email,
-                                                                                        'mobile'=>$user->mobile,
-                                                                                        'country'=>$user->country,
-                                                                                        'dob'=>$user->dob,
-                                                                                        'user_type'=>$user->user_type
-                                                                                    ])}}">
-                                                            <button type="button" class="btn btn-success">Edit</button>
-                                                        </a>
+{{--                                        <h6>Edit & Update access only for Admin</h6>--}}
+{{--                                        <hr class="mt-0 mb-2">--}}
+{{--                                        <div class="row col-4">--}}
+{{--                                            <h4 class="fw-bold text-center mt-3"></h4>--}}
+{{--                                            <form class=" bg-white px-4" action="{{route('admin_dashboard')}}">--}}
+{{--                                                <p class="fw-bold">Send Request</p>--}}
+{{--                                        <h7>Do you want sent request to Admin for Update info?</h7>--}}
+                                                <div class="form-check mb-2">
+                                                    <input class="form-check-input" type="radio" name="exampleForm" id="radioExample1" />
+                                                    <label class="form-check-label" for="radioExample1">
+                                                       Yes
+                                                    </label>
+                                                </div>
+                                                <div class="form-check mb-2">
+                                                    <input class="form-check-input" type="radio" name="exampleForm" id="radioExample2" />
+                                                    <label class="form-check-label" for="radioExample2">
+                                                        No
+                                                    </label>
+                                                </div>
+                                            </form>
+                                            <div class="container">
+                                                <div class="buttons">
+                                                    <a href="{{route('admin_dashboard')}}">
                                                         <a
                                                             href="#"
-                                                            onclick="event.preventDefault();document.getElementById('delete-to').submit();"
+                                                            onclick="event.preventDefault();document.getElementById('request-to').submit();"
                                                         >
-                                                            <button type="button" class="btn btn-danger">Delete</button>
-                                                        </a>
-                                                        <form id="delete-to" action="{{route('delete_user', $user->id)}}" method="POST" class="d-none">
-                                                            @method('delete')
-                                                            @csrf
+                                                        <button id="demo" onclick="myFunction()" type="submit" class="btn btn-primary">Send Request</button>
+                                                    </a>
+                                                        <script>
+                                                            function myFunction() {
+                                                                // alert("Are you sure to access Admin DashBoard ?");
+                                                                let text = "Are you sure to access Admin DashBoard ?";
+                                                                if (confirm(text) == true) {
+                                                                    text = "You pressed OK!";
+                                                                } else {
+                                                                    text = "You canceled!";
+                                                                }
+                                                                document.getElementById("demo").innerHTML = text;
+                                                                // window.confirm("これが確認ダイアログです。");
+                                                            }
+                                                        </script>
+                                                        <form id="request-to" action="{{route('admin_dashboard',)}}"   class="a-none">
+
                                                         </form>
+                                            </div>
+
+{{--                                            <div class="btn-toolbar justify-content-between" role="toolbar" aria-label="Toolbar with button groups">--}}
+{{--                                                <div class="container">--}}
+{{--                                                    <div class="buttons">--}}
+{{--                                                        <a href="{{route('action',--}}
+{{--                                                                                    [--}}
+{{--                                                                                        'id'=>$user->id,--}}
+{{--                                                                                        'first_name'=>$user->first_name,--}}
+{{--                                                                                        'last_name'=>$user->last_name,--}}
+{{--                                                                                        'email'=>$user->email,--}}
+{{--                                                                                        'mobile'=>$user->mobile,--}}
+{{--                                                                                        'country'=>$user->country,--}}
+{{--                                                                                        'dob'=>$user->dob,--}}
+{{--                                                                                        'user_type'=>$user->user_type--}}
+{{--                                                                                    ])}}">--}}
+{{--                                                            <button type="button" class="btn btn-success">Edit</button>--}}
+{{--                                                        </a>--}}
+{{--                                                        <a--}}
+{{--                                                            href="#"--}}
+{{--                                                            onclick="event.preventDefault();document.getElementById('delete-to').submit();"--}}
+{{--                                                        >--}}
+{{--                                                            <button type="button" class="btn btn-danger">Delete</button>--}}
+{{--                                                        </a>--}}
+{{--                                                        <form id="delete-to" action="{{route('delete_user', $user->id)}}" method="POST" class="d-none">--}}
+{{--                                                            @method('delete')--}}
+{{--                                                            @csrf--}}
+{{--                                                        </form>--}}
+{{--                                                        <div class="row col-5">--}}
+{{--                                                            <h4 class="fw-bold text-center mt-3"></h4>--}}
+{{--                                                            <form class="px-4" action="">--}}
+{{--                                                                <p class="fw-bold">Send Request</p>--}}
+{{--                                                                <div class="form-check">--}}
+{{--                                                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" />--}}
+{{--                                                                    <label class="form-check-label" for="flexCheckDefault">--}}
+{{--                                                                        Send Request To Admin--}}
+{{--                                                                    </label>--}}
+{{--                                                                </div>--}}
+{{--                                                            </form>--}}
+{{--                                                            <div class="card-footer text-end">--}}
+{{--                                                                <button type="button" class="btn btn-primary">Submit</button>--}}
+{{--                                                            </div>--}}
+{{--                                                        </div>--}}
+
+
                                                     </div>
                                                     <div>
                                                     </div>

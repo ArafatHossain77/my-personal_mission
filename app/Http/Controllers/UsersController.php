@@ -98,4 +98,10 @@ class UsersController extends Controller
        Users::where('id', $request->id)->update($request->only('first_name', 'last_name', 'email', 'mobile', 'country', 'dob'));
         return redirect()->route("action")->with('success','Your info updated   successfully in Database');
     }
+    public function logout(): RedirectResponse
+    {
+        Auth::logout();
+        Session::flush();
+        return redirect()->route('login');
+    }
 }
