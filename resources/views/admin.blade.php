@@ -14,6 +14,27 @@
         <nav class="navbar bg-primary" data-bs-theme="dark">
             <div class="container-fluid">
                 <a class="navbar-brand" href="#">Admin Profile</a>
+                @if(isset($all_data[1]['personal_mission']) && $all_data[1]['personal_mission'] != null)
+                    <div class="text-center">
+                        <button type="button" hidden class="btn btn-success">
+                            <a href="{{route('personalMissionAdmin')}}" class="navbar-brand inline_block font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Write This Month's Personal Mission</a>
+                        </button>
+                    </div>
+                @else
+                    @if(now()->format('d') > 20)
+                        <div class="text-center">
+                            <button type="button" hidden class="btn btn-success">
+                                <a href="{{route('personalMissionAdmin')}}" class="navbar-brand inline_block font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Write This Month's Personal Mission</a>
+                            </button>
+                        </div>
+                    @else
+                        <div class="text-center">
+                            <button type="button" class="btn btn-success">
+                                <a href="{{route('personalMissionAdmin')}}" class="navbar-brand inline_block font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Write This Month's Personal Mission</a>
+                            </button>
+                        </div>
+                    @endif
+                @endif
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -21,6 +42,9 @@
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
                             <a class="nav-link active" aria-current="page" href="{{route('login')}}">Logout To Admin</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="{{route('personalMissionAdminView')}}">Personal Mission</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{{route('admin_dashboard')}}">Profile</a>
@@ -49,14 +73,17 @@
                 <div class="container-fluid">
         <section class="vh-100" style="background-color: #336ce5;">
             <div class="container py-5 h-100">
+                @if (\Session::has('success'))
+                    <div class="alert alert-success">{!! \Session::get('success') !!} </div>
+                @endif
                 <div class="row d-flex justify-content-center align-items-center h-100">
                     <div class="col col-lg-6 mb-4 mb-lg-0">
                         <div class="card mb-3" style="border-radius: .5rem;">
                             <div class="row g-0">
-                                <div class="col-md-4 gradient-custom text-center text-white"
+                                <div class="col-md-4 mt-5 gradient-custom text-center text-white"
                                      style="border-top-left-radius: .5rem; border-bottom-left-radius: .5rem;">
-                                    <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp" alt="avatar"
-                                         class="rounded-circle img-fluid" style="width: 150px;"/>
+                                    <img src="https://mdbcdn.b-cdn.net/img/new/avatars/1.webp" class="rounded-circle shadow-4"
+                                         style="width: 150px;" alt="Avatar" />
                                 </div>
                                 <br>
                                 <div class="col-md-8">
@@ -93,8 +120,19 @@
                                                 <p class="text-muted">{{$user['dob']}}</p>
                                             </div>
                                         </div>
+                                        <hr class="mt-0 mb-1">
+                                        <div class="col-auto">
+                                            <span id="textExample2" class="form-text"> You can edit and update your information from the 1st to the 20th of every month. </span>
+                                        </div>
+                                        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                                            <strong> You can update !</strong> it will be not work 21st in this month.
+                                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
 
-                                        <div class="row pt-1">
+
+                                        <div class="row pt-2">
                                             <div class="btn-toolbar justify-content-between" role="toolbar" aria-label="Toolbar with button groups">
                                                 <div class="container">
                                                     <div class="buttons">
@@ -119,7 +157,13 @@
                                                         </a>
                                                         <script>
                                                             function myFunction() {
-                                                                alert("Are you sure ?");
+                                                                let text = "Are you sure to Delete Your account ?";
+                                                                if (confirm(text) == true) {
+                                                                    text = "You pressed OK!";
+                                                                } else {
+                                                                    text = "You canceled!";
+                                                                }
+                                                                document.getElementById("demo").innerHTML = text;
                                                             }
                                                         </script>
 

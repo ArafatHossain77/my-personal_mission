@@ -40,3 +40,23 @@ Route::delete('/delete/{id}', [App\Http\Controllers\UsersController::class, 'des
 
 
 
+Route::get('/timeline', [App\Http\Controllers\UsersController::class, 'timeline'])->name('timeline');
+Route::get('/user_mission', [App\Http\Controllers\PersonalMissionController::class, 'user_mission'])->name('user_mission');
+Route::get('/admin_mission', [App\Http\Controllers\PersonalMissionController::class, 'admin_mission'])->name('admin_mission');
+
+
+//Personal Mission section
+Route::get('/personal-mission-User', [App\Http\Controllers\PersonalMissionController::class, 'personalMissionUser'])->name('personalMissionUser');
+Route::get('/personal-mission-admin', [App\Http\Controllers\PersonalMissionController::class, 'personalMissionAdmin'])->name('personalMissionAdmin');
+Route::get('/personal-mission-dashboardUser', [App\Http\Controllers\PersonalMissionController::class, 'personalMissionDashboardUser'])->name('personalMissionDashboardUser');
+Route::get('/personal-mission-dashboardAdmin', [App\Http\Controllers\PersonalMissionController::class, 'personalMissionDashboardAdmin'])->name('personalMissionDashboardAdmin');
+Route::post('/personal-mission-createUser', [App\Http\Controllers\PersonalMissionController::class, 'personalMissionCreateUser'])->name('personalMissionCreateUser');
+Route::post('/personal-mission-createAdmin', [App\Http\Controllers\PersonalMissionController::class, 'personalMissionCreateAdmin'])->name('personalMissionCreateAdmin');
+
+//personal_Mission User & Admin view
+Route::get('/personal-mission-user-view', [App\Http\Controllers\PersonalMissionController::class, 'personalMissionUserView'])->name('personalMissionUserView');
+Route::get('/personal-mission-admin-view', [App\Http\Controllers\PersonalMissionController::class, 'personalMissionAdminView'])->name('personalMissionAdminView');
+Route::get('/user_edit_personal-mission-dashboard-view', [App\Http\Controllers\PersonalMissionController::class, 'userEditPersonalMissionViewDashboard'])->name('userEditPersonalMissionViewDashboard');
+Route::get('/admin_edit_personal-mission-dashboard-view', [App\Http\Controllers\PersonalMissionController::class, 'admin_Personal_mission_edit_Dashboard'])->name('admin_Personal_mission_edit_Dashboard');
+
+

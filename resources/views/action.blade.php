@@ -16,9 +16,9 @@
             @if(isset($user) && $user['user_type'] == 1)
                 <a class="navbar-brand" href="#">Admin Profile</a>
             @elseif(isset($user) && $user['user_type'] == 2)
-                <a class="navbar-brand" href="#">Update Your Info</a>
+                <a class="navbar-brand" href="#">User Profile</a>
             @endif
-            <a class="navbar-brand" href="#">User Profile</a>
+            <a class="navbar-brand" href="#">Update Your Info</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>

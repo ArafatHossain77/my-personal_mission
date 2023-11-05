@@ -19,7 +19,7 @@
                     @if (\Session::has('success'))
                         <div class="alert alert-success">{!! \Session::get('success') !!} </div>
                         @elseif(\Session::has('fail'))
-                            <div class="alert alert-warning">{!! \Session::get('fail') !!} </div>
+                            <div class="alert alert-danger">{!! \Session::get('fail') !!} </div>
                         @endif
                         <div class="d-flex align-items-center h-custom-2 px-5 ms-xl-4 mt-5 pt-5 pt-xl-0 mt-xl-n5">
                             <form method="POST" action='{{route('login_dashboard')}}'style="width: 23rem;">

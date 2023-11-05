@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\personalMission;
 use App\Models\User;
 use App\Models\Users;
 use Illuminate\Http\RedirectResponse;
@@ -58,19 +59,20 @@ class UsersController extends Controller
         }
         return redirect()->route('login')->with(['fail' => 'Provided credentials are not valid!']);
     }
-
     public function user()
     {
         $user = Auth::user();
+        $userMission = PersonalMission::where('user_id', $user->id)->orderBy('created_at', 'DESC')->first();
+        $all_data = array($user, $userMission);
         return view('user',compact('user'));
     }
-
     public function admin()
     {
         $user = Auth::user();
+        $userMission = PersonalMission::where('user_id', $user->id)->orderBy('created_at', 'DESC')->first();
+        $all_data = array($user, $userMission);
         return view('admin',compact('user'));
     }
-
    public function action()
    {
        $userAllData=Users::latest()->get();
@@ -91,17 +93,22 @@ class UsersController extends Controller
     public function destroy(int $id): RedirectResponse
     {
       Users::where('id', $id)->delete();
-        return redirect()->route("registration")->with('success','Your info deleted  successfully in Database');
+        return redirect()->route("registration")->with('success','Your account  deleted  successfully form our server');
     }
     public function update_user(Request $request): RedirectResponse
     {
        Users::where('id', $request->id)->update($request->only('first_name', 'last_name', 'email', 'mobile', 'country', 'dob'));
-        return redirect()->route("action")->with('success','Your info updated   successfully in Database');
+        return redirect()->route("action")->with('success','Your info updated   successfully in Database/ check it on Your  User profile');
     }
     public function logout(): RedirectResponse
     {
         Auth::logout();
         Session::flush();
         return redirect()->route('login');
+    }
+
+    public function timeline()
+    {
+        return view('timeline');
     }
 }

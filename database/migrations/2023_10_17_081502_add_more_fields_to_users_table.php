@@ -20,6 +20,7 @@ return new class extends Migration
             $table->tinyInteger('user_type');
 
             $table->dropColumn('name');
+
         });
     }
 
