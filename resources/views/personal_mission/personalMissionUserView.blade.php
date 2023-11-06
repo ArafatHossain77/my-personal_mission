@@ -23,14 +23,14 @@
                             <a class="nav-link active" aria-current="page" href="#">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Personal Mission</a>
+                            <a class="nav-link" href="{{route('personalMissionUser')}}">New Mission</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Profile</a>
+                            <a class="nav-link" href="{{route('personalMissionUserView')}}">Back User Mission</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Logout</a>
-                        </li>
+{{--                        <li class="nav-item">--}}
+{{--                            <a class="nav-link" href="{{route('logout')}}">Logout</a>--}}
+{{--                        </li>--}}
                     </ul>
                 </div>
             </div>
@@ -47,50 +47,50 @@
                         <tr>
                             <th scope="col">SN</th>
                             <th scope="col">Name</th>
-                            <th scope="col">Roll</th>
+                            <th scope="col">Type</th>
                             <th scope="col">Mission</th>
                             <th scope="col">Action</th>
                         </tr>
                         </thead>
                         <tbody>
-{{--                        @php($i = 1)--}}
-{{--                        @foreach($usersWithMissions as $usersMission)--}}
-{{--                            <tr>--}}
-{{--                                <th scope="row">{{$i++}}</th>--}}
-{{--                                <td><div class="ms-2 me-auto">{{$usersMission->first_name}} {{$usersMission->last_name}}</div></td>--}}
-{{--                                <td>--}}
-{{--                                    <div class="ms-2 me-auto">--}}
-{{--                                        @if($usersMission->user_type == 1)--}}
-{{--                                            Admin--}}
-{{--                                        @else--}}
-{{--                                            User--}}
-{{--                                        @endif--}}
-{{--                                    </div>--}}
-{{--                                </td>--}}
-{{--                                <td><div class="ms-2 me-auto">{{$usersMission->personal_mission}}</div></td>--}}
-{{--                                <td>--}}
-{{--                                    <div class="ms-2 me-auto">--}}
-{{--                                        @if($usersMission->edit_flag == 0)--}}
-{{--                                            <form method="POST" action="{{route('personalMissionUserEditRequest', $usersMission->id)}}">--}}
-{{--                                                @method('put')--}}
-{{--                                                @csrf--}}
-{{--                                                <input type="hidden" name="id" value="{{$usersMission->id}}">--}}
-{{--                                                <input type="hidden" name="edit_flag" value=1>--}}
-{{--                                                <a href="#">--}}
-{{--                                                    <button type="submit" class="btn btn-secondary">Make Request To Edit Your Mission</button>--}}
-{{--                                                </a>--}}
-{{--                                            </form>--}}
-{{--                                        @elseif($usersMission->edit_flag == 1)--}}
-{{--                                            <button type="button" disabled class="btn btn-success">Requested</button>--}}
-{{--                                        @elseif($usersMission->edit_flag == 2)--}}
-{{--                                            <a href="{{route('personalMissionUserMissionEditDashboard', ['id'=>$usersMission->id, 'personal_mission'=>$usersMission->personal_mission])}}">--}}
-{{--                                                <button type="button" class="btn btn-success">Edit Mission</button>--}}
-{{--                                            </a>--}}
-{{--                                        @endif--}}
-{{--                                    </div>--}}
-{{--                                </td>--}}
-{{--                            </tr>--}}
-{{--                        @endforeach--}}
+                        @php($i = 1)
+                        @foreach($usersWithMissions as $usersMission)
+                            <tr>
+                                <th scope="row">{{$i++}}</th>
+                                <td><div class="ms-2 me-auto">{{$usersMission->first_name}} {{$usersMission->last_name}}</div></td>
+                                <td>
+                                    <div class="ms-2 me-auto">
+                                        @if($usersMission->user_type == 1)
+                                            Admin
+                                        @else
+                                            User
+                                        @endif
+                                    </div>
+                                </td>
+                                <td><div class="ms-2 me-auto">{{$usersMission->personal_mission}}</div></td>
+                                <td>
+                                    <div class="ms-2 me-auto">
+                                        @if($usersMission->edit_flag == 0)
+                                            <form method="POST" action="{{route('personalMissionUserEditRequest', $usersMission->id)}}">
+                                                @method('put')
+                                                @csrf
+                                                <input type="hidden" name="id" value="{{$usersMission->id}}">
+                                                <input type="hidden" name="edit_flag" value=1>
+                                                <a href="#">
+                                                    <button type="submit" class="btn btn-secondary">Make Request To Edit Your Mission</button>
+                                                </a>
+                                            </form>
+                                        @elseif($usersMission->edit_flag == 1)
+                                            <button type="button" disabled class="btn btn-success">Requested</button>
+                                        @elseif($usersMission->edit_flag == 2)
+                                            <a href="{{route('userEditPersonalMissionViewDashboard', ['id'=>$usersMission->id, 'personal_mission'=>$usersMission->personal_mission])}}">
+                                                <button type="button" class="btn btn-success">Edit Mission</button>
+                                            </a>
+                                        @endif
+                                    </div>
+                                </td>
+                            </tr>
+                        @endforeach
 
                         </tbody>
                     </table>

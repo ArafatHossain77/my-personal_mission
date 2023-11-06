@@ -59,4 +59,12 @@ Route::get('/personal-mission-admin-view', [App\Http\Controllers\PersonalMission
 Route::get('/user_edit_personal-mission-dashboard-view', [App\Http\Controllers\PersonalMissionController::class, 'userEditPersonalMissionViewDashboard'])->name('userEditPersonalMissionViewDashboard');
 Route::get('/admin_edit_personal-mission-dashboard-view', [App\Http\Controllers\PersonalMissionController::class, 'admin_Personal_mission_edit_Dashboard'])->name('admin_Personal_mission_edit_Dashboard');
 
+//personal mission edit/ update/ request
+Route::put('/personal-mission-user-edit-request/{id}', [App\Http\Controllers\PersonalMissionController::class, 'personalMissionUserEditRequest'])->name('personalMissionUserEditRequest');
+Route::put('/personal-mission-user-mission-edit/{id}', [App\Http\Controllers\PersonalMissionController::class, 'personalMissionUserMissionEdit'])->name('personalMissionUserMissionEdit');
+Route::put('/personal-mission-user-accept-ignore/{id}', [App\Http\Controllers\PersonalMissionController::class, 'personalMissionAdminEditAcceptIgnoreRequest'])->name('personalMissionAdminEditAcceptIgnoreRequest');
+Route::get('/personal-mission-user-mission-edit', [App\Http\Controllers\PersonalMissionController::class, 'personalMissionUserMissionEditDashboard'])->name('personalMissionUserMissionEditDashboard');
+Route::put('/personal-mission-admin-mission-update/{id}', [App\Http\Controllers\PersonalMissionController::class, 'personalMissionAdminMissionUpdate'])->name('personalMissionAdminMissionUpdate');
+Route::put('/personalMissionUserMissionUpdate/{id}', [App\Http\Controllers\PersonalMissionController::class, 'personalMissionUserMissionUpdate'])->name('personalMissionUserMissionUpdate');
+
 
