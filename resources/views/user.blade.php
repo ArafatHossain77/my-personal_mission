@@ -14,7 +14,9 @@
         <nav class="navbar bg-primary" data-bs-theme="dark">
             <div class="container-fluid">
                 <a class="navbar-brand" href="#">User Profile</a>
+{{--                @dd($all_data[1])--}}
                 @if(isset($all_data[1]['personal_mission']) && $all_data[1]['personal_mission'] != null)
+
                     <div class="text-center">
                         <button type="button" hidden class="btn btn-success">
                             <a href="{{route('personalMissionUser')}}" class="navbar-brand inline_block font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Write This Month's Personal Mission</a>
@@ -55,7 +57,7 @@
                                 <li><hr class="dropdown-divider"></li>
                                 <li><a class="dropdown-item" href="{{route('login')}}">Log Out</a></li>
                                 <li><hr class="dropdown-divider"></li>
-                                <li><a class="dropdown-item" href="#">About Us</a></li>
+                                <li><a class="dropdown-item" href="https://codesparks.io/about/">About Us</a></li>
                             </ul>
                         </li>
                     </ul>

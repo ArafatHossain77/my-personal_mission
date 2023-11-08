@@ -64,14 +64,15 @@ class UsersController extends Controller
         $user = Auth::user();
         $userMission = PersonalMission::where('user_id', $user->id)->orderBy('created_at', 'DESC')->first();
         $all_data = array($user, $userMission);
-        return view('user',compact('user'));
+//        return view($all_data,['personal_mission']);
+        return view('user',compact('user'))->with(['all_data'=> $all_data]);
     }
     public function admin()
     {
         $user = Auth::user();
         $userMission = PersonalMission::where('user_id', $user->id)->orderBy('created_at', 'DESC')->first();
         $all_data = array($user, $userMission);
-        return view('admin',compact('user'));
+        return view('admin',compact('user'))->with(['all_data'=>$all_data]);
     }
    public function action()
    {

@@ -68,3 +68,8 @@ Route::put('/personal-mission-admin-mission-update/{id}', [App\Http\Controllers\
 Route::put('/personalMissionUserMissionUpdate/{id}', [App\Http\Controllers\PersonalMissionController::class, 'personalMissionUserMissionUpdate'])->name('personalMissionUserMissionUpdate');
 
 
+//Route::put('/personal-mission-admin-mission-update/{id}', [App\Http\Controllers\PersonalMissionController::class, 'personalMissionAdminMissionUpdate'])->name('personalMissionAdminMissionUpdate');
+
+//Route::put('/missionUpdateAdmin/{id}', [App\Http\Controllers\personalMissionController::class, 'missionUpdateAdmin'])->name('missionUpdateAdmin');
+
+

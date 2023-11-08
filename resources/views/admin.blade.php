@@ -58,7 +58,7 @@
 {{--                                <li><hr class="dropdown-divider"></li>--}}
                                 <li><a class="dropdown-item" href="{{route('registration')}}">New Registration</a></li>
                                 <li><hr class="dropdown-divider"></li>
-                                <li><a class="dropdown-item" href="#">About Us</a></li>
+                                <li><a class="dropdown-item" href="https://codesparks.io/about/">About Us</a></li>
                             </ul>
                         </li>
                     <form class="d-flex p-2" role="search">

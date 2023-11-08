@@ -22,11 +22,11 @@
                         <li class="nav-item">
                             <a class="nav-link active" aria-current="page" href="#">Home</a>
                         </li>
+{{--                        <li class="nav-item">--}}
+{{--                            <a class="nav-link" href="{{route('personalMissionUser')}}">New Mission</a>--}}
+{{--                        </li>--}}
                         <li class="nav-item">
-                            <a class="nav-link" href="{{route('personalMissionUser')}}">New Mission</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{route('personalMissionUserView')}}">Back User Mission</a>
+                            <a class="nav-link" href="{{route('user_dashboard')}}">Back User Profile</a>
                         </li>
 {{--                        <li class="nav-item">--}}
 {{--                            <a class="nav-link" href="{{route('logout')}}">Logout</a>--}}

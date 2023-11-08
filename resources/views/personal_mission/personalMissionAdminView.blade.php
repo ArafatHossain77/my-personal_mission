@@ -19,16 +19,16 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">Home</a>
+                            <a class="nav-link active" aria-current="page" href="{{route('admin_dashboard')}}">Home</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{{route('personalMissionAdminView')}}">Personal Mission</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Profile</a>
+                            <a class="nav-link" href="{{route('admin_dashboard')}}">Profile</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Logout</a>
+                            <a class="nav-link" href="{{route('login')}}">Logout</a>
                         </li>
                     </ul>
                 </div>
@@ -82,13 +82,13 @@
                                                 @method('PUT')
                                                 @csrf
                                                 <input type="hidden" name="id" value="{{$usersMission->id}}">
-                                                <button type="submit" name="action" value="accept" class="btn btn-success">Accept</button>
-                                                <button type="submit" name="action" value="ignore" class="btn btn-danger mt-2">Ignore</button>
+                                                <button type="submit" name="action" value="accept" class="btn btn-success mt-2">Accept</button>
+                                                <button type="submit" name="action" value="ignore" class="btn btn-warning mt-2">Ignore</button>
                                             </form>
                                         </div>
                                     @elseif($usersMission->edit_flag == 2)
                                         <a href="#">
-                                            <button type="button" hidden class="btn btn-success">Edit Mission</button>
+                                            <button type="button" hidden class="btn btn-info">Edit Mission</button>
                                         </a>
                                     @endif
                                 </div>
