@@ -54,7 +54,6 @@ class PersonalMissionController extends Controller
         personalMission::create($missionData);
         return redirect()->route('admin_dashboard')->with(['success' => 'A new mission created successfully!']);
     }
-
     public function personalMissionUserView()
     {
         $user = Auth::user();
@@ -180,6 +179,7 @@ class PersonalMissionController extends Controller
     }
     public function personalMissionUserMissionUpdate(Request $request)
     {
+
         PersonalMission::where('id', $request->id)->update($request->only('personal_mission'));
         $user = Auth::user();
         $usersWithMissions = DB::table('users')
@@ -220,6 +220,24 @@ class PersonalMissionController extends Controller
 ////        return redirect()->route("userEditPersonalMissionViewDashboard")->with('success','Your misssion updated   successfully in Database');
 //        return view('personal_mission.admin_Personal_mission_edit_Dashboard', compact('usersWithMissions'))->with('user', $user);
 //    }
+
+
+//    public function mission_report()
+//    {
+//        return view('personal_mission.mission_report');
+//    }
+
+    public function mission_report()
+    {
+        $user = Auth::user();
+        $userMission = PersonalMission::where('user_id', $user->id)->orderBy('created_at', 'DESC')->first();
+        $all_data = array($user, $userMission);
+        $usersWithMissions = DB::table('users')
+            ->leftJoin('personal_missions', 'users.id', '=', 'personal_missions.user_id')
+            ->select('users.*', 'personal_missions.*')
+            ->get();
+        return view('personal_mission.mission_report', compact('all_data'))->with('usersWithMissions', $usersWithMissions);
+    }
 
 
 

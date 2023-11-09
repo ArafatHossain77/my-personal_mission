@@ -20,7 +20,7 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">Home</a>
+                            <a class="nav-link active" aria-current="page" href="#">Back</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Personal Mission</a>
@@ -44,9 +44,9 @@
                     @method('PUT')
                     @csrf
                     <div class="form-group">
-                        <label>
+                        <div>
                             <textarea type="email" name="personal_mission" class="form-control input-lg mt-3" placeholder="Enter mission">{{$usersWithMissions[0]->personal_mission}}</textarea>
-                        </label>
+                        </div>
                     </div>
                     <button type="submit" class="btn btn-primary mt-3">Update</button>
                 </form>

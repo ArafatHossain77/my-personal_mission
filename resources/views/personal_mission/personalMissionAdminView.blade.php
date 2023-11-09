@@ -19,14 +19,14 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="{{route('admin_dashboard')}}">Home</a>
+                            <a class="nav-link active" aria-current="page" href="{{route('admin_dashboard')}}">Back</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{{route('personalMissionAdminView')}}">Personal Mission</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{route('admin_dashboard')}}">Profile</a>
-                        </li>
+{{--                        <li class="nav-item">--}}
+{{--                            <a class="nav-link" href="{{route('admin_dashboard')}}">Profile</a>--}}
+{{--                        </li>--}}
                         <li class="nav-item">
                             <a class="nav-link" href="{{route('login')}}">Logout</a>
                         </li>
@@ -45,7 +45,7 @@
                         <tr>
                             <th scope="col">SN</th>
                             <th scope="col">Name</th>
-                            <th scope="col">Roll</th>
+                            <th scope="col">Type</th>
                             <th scope="col">Mission</th>
                             <th scope="col">Action</th>
                         </tr>

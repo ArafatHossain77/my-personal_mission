@@ -44,9 +44,9 @@
                     @method('PUT')
                     @csrf
                     <div class="form-group">
-                        <label>
+                       <div>
                             <textarea type="email" name="personal_mission" class="form-control input-lg mt-3" placeholder="Enter mission">{{$usersWithMissions[0]->personal_mission}}</textarea>
-                        </label>
+                       </div>
                     </div>
                     <input type="hidden" name="edit_flag" value=0>
                     <button type="submit" class="btn btn-primary mt-3">Update</button>

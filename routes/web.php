@@ -30,22 +30,23 @@ Route::post('/store', [\App\Http\Controllers\UsersController::class, 'store'])->
 
 
 Route::post('/login_dashboard', [App\Http\Controllers\UsersController::class, 'login_dashboard'])->name('login_dashboard');
-Route::get('/user', [\App\Http\Controllers\UsersController::class, 'user'])->name('user_dashboard')->middleware('auth');
-Route::get('/admin', [\App\Http\Controllers\UsersController::class, 'admin'])->name('admin_dashboard')->middleware('auth');
+Route::get('/user', [App\Http\Controllers\UsersController::class, 'user'])->name('user_dashboard')->middleware('auth');
+Route::get('/admin', [App\Http\Controllers\UsersController::class, 'admin'])->name('admin_dashboard')->middleware('auth');
 
 
 Route::put('/update/{id}', [App\Http\Controllers\UsersController:: class, 'update_user'])->name('update_user');
 Route::get('/edit_user', [App\Http\Controllers\UsersController::class, 'edit_user'])->name('edit_user');
 Route::delete('/delete/{id}', [App\Http\Controllers\UsersController::class, 'destroy'])->name('delete_user');
-
-
-
 Route::get('/timeline', [App\Http\Controllers\UsersController::class, 'timeline'])->name('timeline');
+
+
+
+//Personal Mission section
 Route::get('/user_mission', [App\Http\Controllers\PersonalMissionController::class, 'user_mission'])->name('user_mission');
 Route::get('/admin_mission', [App\Http\Controllers\PersonalMissionController::class, 'admin_mission'])->name('admin_mission');
 
 
-//Personal Mission section
+
 Route::get('/personal-mission-User', [App\Http\Controllers\PersonalMissionController::class, 'personalMissionUser'])->name('personalMissionUser');
 Route::get('/personal-mission-admin', [App\Http\Controllers\PersonalMissionController::class, 'personalMissionAdmin'])->name('personalMissionAdmin');
 Route::get('/personal-mission-dashboardUser', [App\Http\Controllers\PersonalMissionController::class, 'personalMissionDashboardUser'])->name('personalMissionDashboardUser');
@@ -67,9 +68,9 @@ Route::get('/personal-mission-user-mission-edit', [App\Http\Controllers\Personal
 Route::put('/personal-mission-admin-mission-update/{id}', [App\Http\Controllers\PersonalMissionController::class, 'personalMissionAdminMissionUpdate'])->name('personalMissionAdminMissionUpdate');
 Route::put('/personalMissionUserMissionUpdate/{id}', [App\Http\Controllers\PersonalMissionController::class, 'personalMissionUserMissionUpdate'])->name('personalMissionUserMissionUpdate');
 
+//mission_complete section
+Route::get('/mission_report', [App\Http\Controllers\PersonalMissionController::class, 'mission_report'])->name('mission_report');
 
-//Route::put('/personal-mission-admin-mission-update/{id}', [App\Http\Controllers\PersonalMissionController::class, 'personalMissionAdminMissionUpdate'])->name('personalMissionAdminMissionUpdate');
 
-//Route::put('/missionUpdateAdmin/{id}', [App\Http\Controllers\personalMissionController::class, 'missionUpdateAdmin'])->name('missionUpdateAdmin');
 
 
