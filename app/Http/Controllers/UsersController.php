@@ -22,12 +22,10 @@ class UsersController extends Controller
     {
         return view('welcome');
     }
-
     public function login()
     {
         return view('login');
     }
-
     public function registration()
     {
         return view('registration');
@@ -99,7 +97,7 @@ class UsersController extends Controller
     public function update_user(Request $request): RedirectResponse
     {
        Users::where('id', $request->id)->update($request->only('first_name', 'last_name', 'email', 'mobile', 'country', 'dob'));
-        return redirect()->route("action")->with('success','Your info updated   successfully in Database/ check it on Your  User profile');
+        return redirect()->route("action")->with('success','Your info updated   successfully in Database/ check it on Your profile');
     }
     public function logout(): RedirectResponse
     {
@@ -112,4 +110,6 @@ class UsersController extends Controller
     {
         return view('timeline');
     }
+
+
 }

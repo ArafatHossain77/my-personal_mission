@@ -13,7 +13,7 @@
     <div class="container">
         <nav class="navbar bg-primary navbar-fixed-top" data-bs-theme="dark">
             <div class="container-fluid">
-                <a class="navbar-brand" href="#">User Profile</a>
+                <a class="navbar-brand" href="#">Admin Profile</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -43,6 +43,11 @@
                 <form method="POST" action="{{route('personalMissionAdminMissionUpdate', $usersWithMissions[0]->id)}}">
                     @method('PUT')
                     @csrf
+                    <div class="form-group mb-3">
+                        <label for="exampleFormControlTextarea1">Your Mission Complete Percentage</label>
+{{--                        @dd($usersWithMissions[0]->mission_complete)--}}
+                        <input type="number" name="mission_complete" class="form-control" value="{{$usersWithMissions[0]->mission_complete}}" id="mission_complete_rate" placeholder="Write  This month's Mission Percentage...">
+                    </div>
                     <div class="form-group">
                         <div>
                             <textarea type="email" name="personal_mission" class="form-control input-lg mt-3" placeholder="Enter mission">{{$usersWithMissions[0]->personal_mission}}</textarea>

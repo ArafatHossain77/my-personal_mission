@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('personal_missions', function (Blueprint $table) {
-            $table->tinyInteger('mission_complete')->default(0)->comment('The number will consider as completed persentage out of 100');
+            $table->tinyInteger('mission_complete')->default(0)->comment('The number will consider as completed percentage out of 100');
         });
     }
 

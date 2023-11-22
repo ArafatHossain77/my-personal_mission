@@ -22,7 +22,7 @@
                             <div class="alert alert-danger">{!! \Session::get('fail') !!} </div>
                         @endif
                         <div class="d-flex align-items-center h-custom-2 px-5 ms-xl-4 mt-5 pt-5 pt-xl-0 mt-xl-n5">
-                            <form method="POST" action='{{route('login_dashboard')}}'style="width: 23rem;">
+                            <form method="POST" action="{{ route('login_dashboard') }}" style="width: 23rem;">
                                 @csrf
                             <h2 class="fw-normal mb-3 pb-3" style="letter-spacing: 5px;">Log in</h2>
 

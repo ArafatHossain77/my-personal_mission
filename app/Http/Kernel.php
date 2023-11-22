@@ -2,6 +2,18 @@
 
 namespace App\Http;
 
+
+use App\Http\Middleware\AdminEditPersonalMissionDashboardCheck;
+use App\Http\Middleware\AdminLoginCheck;
+use App\Http\Middleware\AdminMissionViewCheck;
+use App\Http\Middleware\IsUserCheck;
+use App\Http\Middleware\MissionReport;
+use App\Http\Middleware\PersonalMissionCreateAdminCheck;
+use App\Http\Middleware\PersonalMissionCreateUserCheck;
+use App\Http\Middleware\UserEditPersonalMissionDashboardCheck;
+use App\Http\Middleware\UserLoginCheck;
+use App\Http\Middleware\UserMissionViewCheck;
+use App\Models\User;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
 class Kernel extends HttpKernel
@@ -64,5 +76,16 @@ class Kernel extends HttpKernel
         'signed' => \App\Http\Middleware\ValidateSignature::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
+        'admin_login' => AdminLoginCheck::class,
+        'user_login' => UserLoginCheck::class,
+        'personal_mission_admin_view' => AdminMissionViewCheck::class,
+        'personal_mission_user_view' => UserMissionViewCheck::class,
+        'MissionReport' => MissionReport::class,
+        'personalMissionCreateUser' => PersonalMissionCreateUserCheck::class,
+        'personalMissionCreateAdmin' => PersonalMissionCreateAdminCheck::class,
+        'user_edit_personal-mission-dashboard-check' => UserEditPersonalMissionDashboardCheck::class,
+        'admin_edit_personal-mission-dashboard-check' => AdminEditPersonalMissionDashboardCheck::class,
+        'isUserCheck' => IsUserCheck::class,
+
     ];
 }

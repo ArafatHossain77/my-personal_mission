@@ -14,14 +14,20 @@
         <nav class="navbar bg-primary" data-bs-theme="dark">
             <div class="container-fluid">
                 <a class="navbar-brand" href="#">User Profile</a>
-{{--                @dd($all_data[1])--}}
-                @if(isset($all_data[1]['personal_mission']) && $all_data[1]['personal_mission'] != null)
-
-                    <div class="text-center">
-                        <button type="button" hidden class="btn btn-success">
-                            <a href="{{route('personalMissionUser')}}" class="navbar-brand inline_block font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Write This Month's Personal Mission</a>
-                        </button>
-                    </div>
+                @if(isset($all_data[1]->personal_mission) && $all_data[1]->personal_mission != null)
+                    @if(now()->format('d') > 20 && $all_data[1]->mission_complete == 0)
+                        <div class="text-center">
+                            <button type="button" class="btn btn-success">
+                                <a href="{{route('personalMissionUserMissionEditDashboard')}}" class="navbar-brand inline_block font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Write This month's Mission Percentage Out Of 100</a>
+                            </button>
+                        </div>
+                    @else
+                        <div class="text-center">
+                            <button type="button" hidden class="btn btn-success">
+                                <a href="{{route('personalMissionUser')}}" class="navbar-brand inline_block font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Write This Month's Personal Mission</a>
+                            </button>
+                        </div>
+                    @endif
                 @else
                     @if(now()->format('d') > 20)
                         <div class="text-center">
@@ -37,6 +43,32 @@
                         </div>
                     @endif
                 @endif
+
+
+
+
+
+{{--                @if(isset($all_data[1]['personal_mission'&&'mission_complete']) && $all_data[1]['personal_mission'&&'mission_complete'] != null)--}}
+{{--                    <div class="text-center">--}}
+{{--                        <button type="button" hidden class="btn btn-success">--}}
+{{--                            <a href="{{route('personalMissionUser')}}" class="navbar-brand inline_block font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Write This Month's Mission Percentage</a>--}}
+{{--                        </button>--}}
+{{--                    </div>--}}
+{{--                @else--}}
+{{--                    @if(now()->format('d') > 20)--}}
+{{--                        <div class="text-center">--}}
+{{--                            <button type="button" hidden class="btn btn-success">--}}
+{{--                                <a href="{{route('personalMissionUser')}}" class="navbar-brand inline_block font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Write This Month's Mission Percentage</a>--}}
+{{--                            </button>--}}
+{{--                        </div>--}}
+{{--                    @else--}}
+{{--                        <div class="text-center">--}}
+{{--                            <button type="button" class="btn btn-success">--}}
+{{--                                <a href="{{route('personalMissionUser')}}" class="navbar-brand inline_block font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Write This Month's Mission Percentage</a>--}}
+{{--                            </button>--}}
+{{--                        </div>--}}
+{{--                    @endif--}}
+{{--                @endif--}}
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -120,9 +152,9 @@
                                             </div>
                                         </div>
                                         <hr class="mt-0 mb-3">
-                                        <div class="col-auto">
-                                            <span id="textExample2" class="form-text"> Edit & Update access only for Admin.Do you want sent request to Admin for Update info? </span>
-                                        </div>
+{{--                                        <div class="col-auto">--}}
+{{--                                            <span id="textExample2" class="form-text"> Edit & Update access only for Admin.Do you want sent request to Admin for Update info? </span>--}}
+{{--                                        </div>--}}
 
 {{--                                        <h6>Edit & Update access only for Admin</h6>--}}
 {{--                                        <hr class="mt-0 mb-2">--}}
@@ -131,43 +163,68 @@
 {{--                                            <form class=" bg-white px-4" action="{{route('admin_dashboard')}}">--}}
 {{--                                                <p class="fw-bold">Send Request</p>--}}
 {{--                                        <h7>Do you want sent request to Admin for Update info?</h7>--}}
-                                                <div class="form-check mb-2">
-                                                    <input class="form-check-input" type="radio" name="exampleForm" id="radioExample1" />
-                                                    <label class="form-check-label" for="radioExample1">
-                                                       Yes
-                                                    </label>
-                                                </div>
-                                                <div class="form-check mb-2">
-                                                    <input class="form-check-input" type="radio" name="exampleForm" id="radioExample2" />
-                                                    <label class="form-check-label" for="radioExample2">
-                                                        No
-                                                    </label>
-                                                </div>
-                                            </form>
-                                            <div class="container">
-                                                <div class="buttons">
-                                                    <a href="{{route('admin_dashboard')}}">
+{{--                                                <div class="form-check mb-2">--}}
+{{--                                                    <input class="form-check-input" type="radio" name="exampleForm" id="radioExample1" />--}}
+{{--                                                    <label class="form-check-label" for="radioExample1">--}}
+{{--                                                       Yes--}}
+{{--                                                    </label>--}}
+{{--                                                </div>--}}
+{{--                                                <div class="form-check mb-2">--}}
+{{--                                                    <input class="form-check-input" type="radio" name="exampleForm" id="radioExample2" />--}}
+{{--                                                    <label class="form-check-label" for="radioExample2">--}}
+{{--                                                        No--}}
+{{--                                                    </label>--}}
+{{--                                                </div>--}}
+{{--                                            </form>--}}
+{{--                                            <div class="container">--}}
+{{--                                                <div class="buttons">--}}
+{{--                                                    <a href="{{route('admin_dashboard')}}">--}}
+{{--                                                        <a--}}
+{{--                                                            href="#"--}}
+{{--                                                            onclick="event.preventDefault();document.getElementById('request-to').submit();"--}}
+{{--                                                        >--}}
+{{--                                                        <button id="demo" onclick="myFunction()" type="submit" class="btn btn-primary">Send Request</button>--}}
+{{--                                                    </a>--}}
+{{--                                                        <script>--}}
+{{--                                                            function myFunction() {--}}
+{{--                                                                // alert("Are you sure to access Admin DashBoard ?");--}}
+{{--                                                                let text = "Are you sure to access Admin DashBoard ?";--}}
+{{--                                                                if (confirm(text) == true) {--}}
+{{--                                                                    text = "You pressed OK!";--}}
+{{--                                                                } else {--}}
+{{--                                                                    text = "You canceled!";--}}
+{{--                                                                }--}}
+{{--                                                                document.getElementById("demo").innerHTML = text;--}}
+{{--                                                                // window.confirm("これが確認ダイアログです。");--}}
+{{--                                                            }--}}
+{{--                                                        </script>--}}
+                                        <div class="row pt-4 p-4 mb-2">
+                                            <div class="btn-toolbar justify-content-between" role="toolbar" aria-label="Toolbar with button groups">
+                                                <div class="container">
+                                                    <div class="buttons">
+                                                        <a href="{{route('action',
+                                                                                    [
+                                                                                        'id'=>$user->id,
+                                                                                        'first_name'=>$user->first_name,
+                                                                                        'last_name'=>$user->last_name,
+                                                                                        'email'=>$user->email,
+                                                                                        'mobile'=>$user->mobile,
+                                                                                        'country'=>$user->country,
+                                                                                        'dob'=>$user->dob,
+                                                                                        'user_type'=>$user->user_type
+                                                                                    ])}}">
+                                                            <button type="button" class="btn btn-info">Edit</button>
+                                                        </a>
+{{--                                                        <div class="div mt-2">--}}
                                                         <a
                                                             href="#"
-                                                            onclick="event.preventDefault();document.getElementById('request-to').submit();"
+                                                            onclick="event.preventDefault();document.getElementById('delete-to').submit();"
                                                         >
-                                                        <button id="demo" onclick="myFunction()" type="submit" class="btn btn-primary">Send Request</button>
-                                                    </a>
-                                                        <script>
-                                                            function myFunction() {
-                                                                // alert("Are you sure to access Admin DashBoard ?");
-                                                                let text = "Are you sure to access Admin DashBoard ?";
-                                                                if (confirm(text) == true) {
-                                                                    text = "You pressed OK!";
-                                                                } else {
-                                                                    text = "You canceled!";
-                                                                }
-                                                                document.getElementById("demo").innerHTML = text;
-                                                                // window.confirm("これが確認ダイアログです。");
-                                                            }
-                                                        </script>
-                                                        <form id="request-to" action="{{route('admin_dashboard',)}}"   class="a-none">
-
+                                                            <button  onclick="myFunction()" type="button" class="btn btn-danger">Delete</button>
+                                                        </a>
+                                                        <form id="delete-to" action="{{route('delete_user', $user->id)}}" method="POST" class="d-none">
+                                                            @method('delete')
+                                                            @csrf
                                                         </form>
                                             </div>
                                                     </div>

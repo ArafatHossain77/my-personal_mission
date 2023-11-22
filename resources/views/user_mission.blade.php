@@ -42,7 +42,7 @@
                                     <div class="container">
                                         <p>
                                         <div class="container-fluid">
-                                            <form method="POST" action="{{route('personalMissionCreateUser')}}">
+                                            <form method="POST" action="{{ route('personalMissionCreateUser') }}">
                                                 @csrf
                                                 <div class="form-group">
                                                     <label for="exampleFormControlTextarea1"><h4>Your Mission</h4></label>

@@ -43,12 +43,14 @@
                 <form method="POST" action="{{route('personalMissionUserMissionUpdate', $usersWithMissions[0]->id)}}">
                     @method('PUT')
                     @csrf
-                    <div class="form-group">
-                       <div>
-                            <textarea type="email" name="personal_mission" class="form-control input-lg mt-3" placeholder="Enter mission">{{$usersWithMissions[0]->personal_mission}}</textarea>
-                       </div>
+                    <div class="form-group mb-3">
+                        <label for="exampleFormControlTextarea1">Your Mission Complete Percentage</label>
+                        <input type="number" name="mission_complete" class="form-control" value="{{$usersWithMissions[0]->mission_complete}}">
                     </div>
-                    <input type="hidden" name="edit_flag" value=0>
+                       <div>
+                            <textarea type="email" name="personal_mission" class="form-control input-lg mt-3" placeholder="Enter mission...">{{$usersWithMissions[0]->personal_mission}}</textarea>
+                       </div>
+                    <input type="hidden" name="edit_flag" value=1>
                     <button type="submit" class="btn btn-primary mt-3">Update</button>
                 </form>
             </div>

@@ -35,6 +35,42 @@
                         </div>
                     @endif
                 @endif
+
+
+{{--                @if(isset($all_data[1]['personal_mission']) && $all_data[1]['personal_mission'] != null)--}}
+{{--                @dd($all_data)--}}
+
+
+{{--                @if($all_data[1]->created_at->format('Y') == now()->format('Y') && $all_data[1]->created_at->format('m') == now()->format('m') && isset($all_data[1]->personal_mission) && $all_data[1]->personal_mission != null)--}}
+{{--                    @if(now()->format('d') > 20 && $all_data[1]->mission_complete == 0)--}}
+{{--                        <div class="text-center">--}}
+{{--                            <button type="button" class="btn btn-success">--}}
+{{--                                <a href="{{route('personalMissionAdminMissionEditDashboard')}}" class="navbar-brand inline_block font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Complete Your Achievement Rate out of 100</a>--}}
+{{--                            </button>--}}
+{{--                        </div>--}}
+{{--                    @else--}}
+{{--                        <div class="text-center">--}}
+{{--                            <button type="button" hidden class="btn btn-success">--}}
+{{--                                <a href="{{route('personalMissionUser')}}" class="navbar-brand inline_block font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Write This Month's Personal Mission</a>--}}
+{{--                            </button>--}}
+{{--                        </div>--}}
+{{--                    @endif--}}
+{{--                @else--}}
+{{--                    @if(now()->format('d') > 20)--}}
+{{--                        <div class="text-center">--}}
+{{--                            <button type="button" hidden class="btn btn-success">--}}
+{{--                                <a href="{{route('personalMissionUser')}}" class="navbar-brand inline_block font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Write This Month's Personal Mission</a>--}}
+{{--                            </button>--}}
+{{--                        </div>--}}
+{{--                    @else--}}
+{{--                        <div class="text-center">--}}
+{{--                            <button type="button" class="btn btn-success">--}}
+{{--                                <a href="{{route('personalMissionUser')}}" class="navbar-brand inline_block font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Write This Month's Personal Mission</a>--}}
+{{--                            </button>--}}
+{{--                        </div>--}}
+{{--                    @endif--}}
+{{--                @endif--}}
+
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -73,7 +109,7 @@
         </nav>
     </div>
  <br>
-                <div class="container-fluid">
+                <div class="container-fluid ">
         <section class="vh-100" style="background-color: #336ce5;">
             <div class="container py-5 h-100">
                 @if (\Session::has('success'))
@@ -123,19 +159,19 @@
                                                 <p class="text-muted">{{$user['dob']}}</p>
                                             </div>
                                         </div>
+
                                         <hr class="mt-0 mb-1">
-                                        <div class="col-auto">
-                                            <span id="textExample2" class="form-text"> You can edit and update your information from the 1st to the 20th of every month. </span>
-                                        </div>
-                                        <div class="alert alert-warning alert-dismissible fade show" role="alert">
-                                            <strong> You can update !</strong> it will be not work 21st in this month.
-                                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                                <span aria-hidden="true">&times;</span>
-                                            </button>
-                                        </div>
+{{--                                        <div class="col-auto">--}}
+{{--                                            <span id="textExample2" class="form-text"> You can edit and update your information from the 1st to the 20th of every month. </span>--}}
+{{--                                        </div>--}}
+{{--                                        <div class="alert alert-warning alert-dismissible fade show" role="alert">--}}
+{{--                                            <strong> You can update !</strong> it will be not work 21st in this month.--}}
+{{--                                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">--}}
+{{--                                                <span aria-hidden="true">&times;</span>--}}
+{{--                                            </button>--}}
+{{--                                        </div>--}}
 
-
-                                        <div class="row pt-2">
+                                        <div class="row pt-2 mt-2">
                                             <div class="btn-toolbar justify-content-between" role="toolbar" aria-label="Toolbar with button groups">
                                                 <div class="container">
                                                     <div class="buttons">
