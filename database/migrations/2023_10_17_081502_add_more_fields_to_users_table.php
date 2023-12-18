@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('last_name', 200)->after('first_name');
             $table->string('mobile');
             $table->string('country');
+            $table->string('message');
             $table->string('dob');
             $table->tinyInteger('user_type');
 

@@ -81,6 +81,15 @@
                         <li class="nav-item">
                             <a class="nav-link" href="{{route('timeline')}}">Timeline</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{route('missionCV')}}">CV Mission</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{route('shopAgentInfo')}}">Shop Agent Data</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{route('message')}}">Messenger</a>
+                        </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 Dropdown

@@ -6,7 +6,8 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>action about your profile</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 </head>
 </head>
 <body>
@@ -19,7 +20,9 @@
                 <a class="navbar-brand" href="#">User Profile</a>
             @endif
             <a class="navbar-brand" href="#">Update Your Info</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -39,69 +42,76 @@
 
 
 <div class="card text-bg-info p-3 mb-3 mt-4">
-<div class="container mt-5 mb-5">
-    <div class="card p-5">
-        <div class="card-header">
-            <h2>Info Desk</h2>
-        </div>
-        @if (\Session::has('success'))
-            <div class="alert alert-success">{!! \Session::get('success') !!} </div>
-        @endif
-        <form method="POST" action="{{route('update_user',request()->has('id'))}}">
-            @method('put')
-            @csrf
-            <div class="row mb-3 mt-3">
-                <label for="inputEmail3" class="col-sm-2 col-form-label"><h5>First Name :</h5></label>
-                <div class="col-sm-10">
-                    <input type="text" value="{{request()->first_name}}" name="first_name" class="form-control" id="inputEmail3" placeholder="Type your name..." >
-                    <input type="hidden" name="id" value="{{request()->id}}">
-                </div>
+    <div class="container mt-5 mb-5">
+        <div class="card p-5">
+            <div class="card-header">
+                <h2>Info Desk</h2>
             </div>
-            <div class="row mb-3 mt-3">
-                <label for="inputEmail3" class="col-sm-2 col-form-label"><h5>last Name :</h5></label>
-                <div class="col-sm-10">
-                    <input type="text" value="{{request()->last_name}}" name="last_name" class="form-control" id="inputEmail3" placeholder="Type your name..." >
-                    <input type="hidden" name="id" value="{{request()->id}}">
+            @if (\Session::has('success'))
+                <div class="alert alert-success">{!! \Session::get('success') !!} </div>
+            @endif
+            <form method="POST" action="{{route('update_user',request()->has('id'))}}">
+                @method('put')
+                @csrf
+                <div class="row mb-3 mt-3">
+                    <label for="inputEmail3" class="col-sm-2 col-form-label"><h5>First Name :</h5></label>
+                    <div class="col-sm-10">
+                        <input type="text" value="{{request()->first_name}}" name="first_name" class="form-control"
+                               id="inputEmail3" placeholder="Type your name...">
+                        <input type="hidden" name="id" value="{{request()->id}}">
+                    </div>
                 </div>
-            </div>
-            <div class="row mb-3">
-                <label for="inputPassword3" class="col-sm-2 col-form-label"><h5>EMAIL :</h5></label>
-                <div class="col-sm-10">
-                    <input type="email" value="{{request()->email}}" name="email" class="form-control" id="inputPassword3" placeholder="...@gmail.com " >
-                    <input type="hidden" name="id" value="{{request()->id}}">
+                <div class="row mb-3 mt-3">
+                    <label for="inputEmail3" class="col-sm-2 col-form-label"><h5>last Name :</h5></label>
+                    <div class="col-sm-10">
+                        <input type="text" value="{{request()->last_name}}" name="last_name" class="form-control"
+                               id="inputEmail3" placeholder="Type your name...">
+                        <input type="hidden" name="id" value="{{request()->id}}">
+                    </div>
                 </div>
-            </div>
-            <div class="row mb-3">
-                <label for="inputPassword3" class="col-sm-2 col-form-label"><h5>Mobile :</h5></label>
-                <div class="col-sm-10">
-                    <input type="number" value="{{request()->mobile}}" name="mobile" class="form-control" id="inputPassword3" placeholder="Type your number..." >
-                    <input type="hidden" name="id" value="{{request()->id}}">
+                <div class="row mb-3">
+                    <label for="inputPassword3" class="col-sm-2 col-form-label"><h5>EMAIL :</h5></label>
+                    <div class="col-sm-10">
+                        <input type="email" value="{{request()->email}}" name="email" class="form-control"
+                               id="inputPassword3" placeholder="...@gmail.com ">
+                        <input type="hidden" name="id" value="{{request()->id}}">
+                    </div>
                 </div>
-            </div>
+                <div class="row mb-3">
+                    <label for="inputPassword3" class="col-sm-2 col-form-label"><h5>Mobile :</h5></label>
+                    <div class="col-sm-10">
+                        <input type="number" value="{{request()->mobile}}" name="mobile" class="form-control"
+                               id="inputPassword3" placeholder="Type your number...">
+                        <input type="hidden" name="id" value="{{request()->id}}">
+                    </div>
+                </div>
 
-            <div class="row mb-3">
-                <label for="inputPassword3" class="col-sm-2 col-form-label"><h5>Country :</h5></label>
-                <div class="col-sm-10">
-                    <input type="text"value="{{request()->country}}"  name="country" class="form-control" id="inputPassword3"  placeholder="Type your address...">
-                    <input type="hidden" name="id" value="{{request()->id}}">
+                <div class="row mb-3">
+                    <label for="inputPassword3" class="col-sm-2 col-form-label"><h5>Country :</h5></label>
+                    <div class="col-sm-10">
+                        <input type="text" value="{{request()->country}}" name="country" class="form-control"
+                               id="inputPassword3" placeholder="Type your address...">
+                        <input type="hidden" name="id" value="{{request()->id}}">
+                    </div>
                 </div>
-            </div>
-            <div class="row mb-3">
-                <label for="inputPassword3" class="col-sm-2 col-form-label"><h5>Date of Birth :</h5></label>
-                <div class="col-sm-10">
-                    @if(isset($user) && $user['user_type'] == 2)
-                    <input type="date"  value="{{request()->dob}}"name="dob" class="form-control" id="inputPassword3">
-                    <input type="hidden" name="id" value="{{request()->id}}">
-                    @else
-                    <input type="date"  value="{{request()->dob}}"name="dob" class="form-control" id="inputPassword3">
-                    <input type="hidden" name="id" value="{{request()->id}}">
-                    @endif
+                <div class="row mb-3">
+                    <label for="inputPassword3" class="col-sm-2 col-form-label"><h5>Date of Birth :</h5></label>
+                    <div class="col-sm-10">
+                        @if(isset($user) && $user['user_type'] == 2)
+                            <input type="date" value="{{request()->dob}}" name="dob" class="form-control"
+                                   id="inputPassword3">
+                            <input type="hidden" name="id" value="{{request()->id}}">
+                        @else
+                            <input type="date" value="{{request()->dob}}" name="dob" class="form-control"
+                                   id="inputPassword3">
+                            <input type="hidden" name="id" value="{{request()->id}}">
+                        @endif
+                    </div>
                 </div>
-            </div>
-            <button type="submit" name="add" class="text-bg-info p-3">UPDATE INFO</button>
-        </form>
+                <button type="submit" name="add" class="text-bg-info p-3">UPDATE INFO</button>
+            </form>
+        </div>
     </div>
-</div>
 </div>
 {{--<div class="container mt-5">--}}
 {{--    <div class="card-header">--}}
@@ -184,8 +194,12 @@
 {{--            <div>--}}
 {{--            </div>--}}
 {{--        </div>--}}
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+        integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+        crossorigin="anonymous"></script>
 </body>
 </html>
 

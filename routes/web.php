@@ -17,7 +17,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-
+Route::get('/message', [\App\Http\Controllers\UsersController::class, 'message'])->name('message');
 Route::get('/action', [App\Http\Controllers\UsersController::class, 'action'])->name('action')->middleware('auth','isUserCheck');
 Route::post('/logout', [App\Http\Controllers\UsersController::class, 'logout'])->name('logout')->middleware('auth');
 
@@ -26,6 +26,7 @@ Route::get('/', [App\Http\Controllers\UsersController::class, 'home'])->name('ho
 Route::get('/login', [\App\Http\Controllers\UsersController::class, 'login'])->name('login');
 Route::get('/registration', [\App\Http\Controllers\UsersController::class, 'registration'])->name('registration');
 Route::post('/store', [\App\Http\Controllers\UsersController::class, 'store'])->name('storeData');
+Route::post('/storeMessage', [\App\Http\Controllers\UsersController::class, 'storeMessage'])->name('storeMessage');
 
 
 
@@ -72,6 +73,13 @@ Route::put('/personalMissionUserMissionUpdate/{id}', [App\Http\Controllers\Perso
 Route::get('/mission_report', [App\Http\Controllers\PersonalMissionController::class, 'mission_report'])->name('mission_report')->middleware('auth','MissionReport');
 Route::get('/mission_complete', [App\Http\Controllers\PersonalMissionController::class, 'mission_complete'])->name('mission_complete')->middleware('auth');
 
+//shop agent for dalivery
+Route::get('/shop_agent', [App\Http\Controllers\UsersController::class, 'shopAgent'])->name('shopAgent');
+Route::get('/shop_agent-info_view', [App\Http\Controllers\UsersController::class, 'shopAgentInfo'])->name('shopAgentInfo');
+Route::get('/message_agent', [App\Http\Controllers\UsersController::class, 'messageAgent'])->name('messageAgent');
 
+//mission CV Personal Mission Controller
+Route::get('/mission_cv', [App\Http\Controllers\PersonalMissionController::class, 'missionCV'])->name('missionCV');
+Route::get('/mission_cv_info', [App\Http\Controllers\PersonalMissionController::class, 'missionCvInfo'])->name('missionCvInfo');
 
 
