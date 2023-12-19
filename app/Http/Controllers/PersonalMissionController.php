@@ -3,10 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\personalMission;
+use App\Models\Users;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 
 class PersonalMissionController extends Controller
 {
@@ -213,7 +215,8 @@ class PersonalMissionController extends Controller
         return view('personal_mission.mission_report', compact('all_data'))->with('usersWithMissions', $usersWithMissions);
     }
 
-    //mission cv
+
+    //mission cv Controller started here
     public function missionCV()
     {
         return view('personal_mission.personal_mission_cv');
@@ -224,5 +227,37 @@ class PersonalMissionController extends Controller
         return view('personal_mission.personal_mission_cv_info');
     }
 
+    public function storeCvData(Request $request): RedirectResponse
+    {
+        $userCvData = $request->only('full_name', 'father_name', 'mother_name', 'date_of_birth', 'about_me',
+            'present_address', 'city', 'region', 'zip_code', 'zip_code', 'email', 'social_link', 'mobile_number',
+            'emergency_contact', 'level_of_education', 'major_group', 'result_division_class', 'marks', 'years_of_passing',
+            'institute_name', 'company_name', 'company_business', 'designation', 'department', 'responsibility', 'company_location',
+            'employment_period', 'highlights');
+
+        Users::create($userCvData);
+        return redirect()->route('missionCV')->with(["success" => 'A new Cover Latter created Successfully']);
+    }
+
+    public function mission_cv_update(Request $request): RedirectResponse
+    {
+        Users::where('id', $request->id)->update($request->only('full_name', 'father_name', 'mother_name', 'date_of_birth', 'about_me',
+            'present_address', 'city', 'region', 'zip_code', 'zip_code', 'email', 'social_link', 'mobile_number',
+            'emergency_contact', 'level_of_education', 'major_group', 'result_division_class', 'marks', 'years_of_passing',
+            'institute_name', 'company_name', 'company_business', 'designation', 'department', 'responsibility', 'company_location',
+            'employment_period', 'highlights'));
+        return redirect()->route("missionCV")->with('success', 'Your info updated   successfully in Database/ check it');
+    }
+
+    public function destroy(int $id): RedirectResponse
+    {
+        Users::where('id', $id)->delete();
+        return redirect()->route("registration")->with('success', 'Your account  deleted  successfully form our server');
+    }
+
+    public function missionCvView()
+    {
+        return view('personal_mission.personal_mission_cv_view');
+    }
 
 }

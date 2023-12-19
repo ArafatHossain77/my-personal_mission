@@ -56,49 +56,63 @@
         <div class="container mt-5">
             <div class="card mt-5 mb-3">
                 <div class="card-body">
-                    <h3 class="text-uppercase text-center mb-5">CV Info Desk</h3>
-                    <form method="POST" action='{{route('storeCvData')}}'>
+                    <h3 class="text-uppercase text-center mb-5">Edit Your Info</h3>
+                    <form method="POST" action="{{route('mission_cv_update',request()->has('id'))}}">
+                        @method('put')
                         @csrf
                         <div class="item p-2">
                             <p>Personal Information:</p>
                             <div class="name-item">
-                                <input type="text" name="full_name" placeholder="Full name"/>
+                                <input type="text" value="{{request()->full_name}}" name="full_name"
+                                       placeholder="Full name"/>
+                                <input type="hidden" name="id" value="{{request()->id}}">
                             </div>
                             <div class="name-item mt-2">
-                                <input type="text" name="father_name" placeholder="Father's Name"/>
+                                <input type="text" value="{{request()->father_name}}" name="father_name"
+                                       placeholder="Father's Name"/>
+                                <input type="hidden" name="id" value="{{request()->id}}">
                             </div>
                             <div class="name-item mt-2">
-                                <input type="text" name="mother_name" placeholder="Mother's Name"/>
+                                <input type="text" value="{{request()->mother_name}}" name="mother_name"
+                                       placeholder="Mother's Name"/>
+                                <input type="hidden" name="id" value="{{request()->id}}">
                             </div>
                             <div class="item mt-3">
                                 <p>Date of birth:</p>
                                 <div class="item">
-                                    <input type="date" name="date_of_birth" required/>
+                                    <input type="date" value="{{request()->date_of_birth}}" name="date_of_birth"
+                                           required/>
+                                    <input type="hidden" name="id" value="{{request()->id}}">
                                 </div>
                             </div>
                         </div>
                         <div class="item">
                             <p>About Me :</p>
-                            <textarea name="about_me" rows="5"></textarea>
+                            <textarea type="text" value="{{request()->about_me}}" name="about_me" rows="5"></textarea>
                         </div>
                         <div class="item">
                             <p>Address:</p>
-                            <input type="text" name="present_address" placeholder="Present address"/>
+                            <input type="text" value="{{request()->present_address}}" name="present_address"
+                                   placeholder="Present address"/>
                             <div class="city-item">
-                                <input type="text" name="city" placeholder="City"/>
-                                <input type="text" name="region" placeholder="Region"/>
-                                <input type="number" name="zip_code" placeholder="Postal / Zip code"/>
-                                <input type="text" name="country" placeholder="Country"/>
+                                <input type="text" value="{{request()->city}}" name="city" placeholder="City"/>
+                                <input type="text" value="{{request()->region}}" name="region" placeholder="Region"/>
+                                <input type="number" value="{{request()->zip_code}}" name="zip_code"
+                                       placeholder="Postal / Zip code"/>
+                                <input type="text" value="{{request()->country}}" name="country" placeholder="Country"/>
                             </div>
                         </div>
                         <div class="item mt-3">
                             <p>Contact:</p>
-                            <input type="email" name="email" placeholder="type your email"/>
-                            <input type="number" name="social_link" placeholder="social link"/>
+                            <input type="email" value="{{request()->email}}" name="email"
+                                   placeholder="type your email"/>
+                            <input type="number" value="{{request()->social_link}}" name="social_link"
+                                   placeholder="social link"/>
                             <div class="city-item">
-                                <input type="number" name="mobile_number"
+                                <input type="number" value="{{request()->mobile_number}}" name="mobile_number"
                                        placeholder="Mobile number where you can be reached"/>
-                                <input type="text" name="emergency_contact" placeholder="Emergency Contact"/>
+                                <input type="text" value="{{request()->emergency_contact}}" name="emergency_contact"
+                                       placeholder="Emergency Contact"/>
                             </div>
                         </div>
 
@@ -109,17 +123,22 @@
                                     <div class="card-body">
                                         <p>Education</p>
                                         <div class="city-item">
-                                            <input type="text" name="level_of_education"
+                                            <input type="text" value="{{request()->level_of_education}}"
+                                                   name="level_of_education"
                                                    placeholder="Level of Education"/>
-                                            <input type="text" name="major_group"
+                                            <input type="text" value="{{request()->major_group}}" name="major_group"
                                                    placeholder="Concentration/ Major/Group"/>
-                                            <input type="text" name="result_division_class"
+                                            <input type="text" value="{{request()->result_division_class}}"
+                                                   name="result_division_class"
                                                    placeholder="Result Division/Class"/>
-                                            <input type="number" name="marks" placeholder="Marks(%)"/>
-                                            <input type="number" name="years_of_passing"
+                                            <input type="number" value="{{request()->marks}}" name="marks"
+                                                   placeholder="Marks(%)"/>
+                                            <input type="number" value="{{request()->years_of_passing}}"
+                                                   name="years_of_passing"
                                                    placeholder="Year of Passing "/>
                                         </div>
-                                        <input type="text" name="institute_name" placeholder="Institute Name"/>
+                                        <input type="text" value="{{request()->institute_name}}" name="institute_name"
+                                               placeholder="Institute Name"/>
                                     </div>
                                 </div>
                             </div>
@@ -131,11 +150,16 @@
                                         <p>Experience</p>
                                         <input type="text" name="company_name" placeholder="Company Name"/>
                                         <div class="city-item">
-                                            <input type="text" name="company_business" placeholder="Company Business"/>
-                                            <input type="text" name="designation" placeholder="Designation"/>
-                                            <input type="number" name="department" placeholder="Department"/>
-                                            <input type="text" name="responsibility" placeholder="Responsibilities"/>
-                                            <input type="text" name="company_location" placeholder="Company Location"/>
+                                            <input type="text" value="{{request()->company_business}}"
+                                                   name="company_business" placeholder="Company Business"/>
+                                            <input type="text" value="{{request()->designation}}" name="designation"
+                                                   placeholder="Designation"/>
+                                            <input type="number" value="{{request()->department}}" name="department"
+                                                   placeholder="Department"/>
+                                            <input type="text" value="{{request()->responsibility}}"
+                                                   name="responsibility" placeholder="Responsibilities"/>
+                                            <input type="text" value="{{request()->company_location}}"
+                                                   name="company_location" placeholder="Company Location"/>
                                         </div>
                                     </div>
                                 </div>
@@ -145,19 +169,22 @@
                                             <div class="card-body">
                                                 <p>Employment Period:</p>
                                                 <div class="item">
-                                                    <input type="date" name="employment_period" required/>
+                                                    <input type="date" value="{{request()->employment_period}}"
+                                                           name="employment_period" required/>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="item">
                                             <p>Highlights</p>
                                             <div class="item">
-                                                <textarea name="highlights" placeholder="start with 1."
+                                                <textarea value="{{request()->highlights}}" name="highlights"
+                                                          placeholder="start with 1."
                                                           rows="5"></textarea>
                                             </div>
                                         </div>
                                         <div class="btn-block mb-2 mt-3">
-                                            <button type="submit" name="add" class="text-bg-info p-3">SAVE INFO</button>
+                                            <button type="submit" name="add" class="text-bg-info p-3">UPDATE INFO
+                                            </button>
                                         </div>
                                     </div>
                                 </div>

@@ -62,12 +62,15 @@
             <a href="{{route('missionCvInfo')}}" class="btn btn-primary">Click Hare</a>
         </div>
     </div>
+    @if (\Session::has('success'))
+        <div class="alert alert-success">{!! \Session::get('success') !!} </div>
+    @endif
     <div class="card mb-4" style="width: 18rem;">
         <img src="123.jpg" class="card-img-top" alt="Wild Landscape"/>
         <div class="card-body">
             <h5 class="card-title">Create Pdf here</h5>
             <p class="card-text">view your cover latter and update</p>
-            <a href="#" class="btn btn-info">View Your post</a>
+            <a href="{{route('missionCvView')}}" class="btn btn-info">View Your CV</a>
         </div>
     </div>
 </div>

@@ -81,5 +81,8 @@ Route::get('/message_agent', [App\Http\Controllers\UsersController::class, 'mess
 //mission CV Personal Mission Controller
 Route::get('/mission_cv', [App\Http\Controllers\PersonalMissionController::class, 'missionCV'])->name('missionCV');
 Route::get('/mission_cv_info', [App\Http\Controllers\PersonalMissionController::class, 'missionCvInfo'])->name('missionCvInfo');
+Route::get('/store_Cv_Data', [App\Http\Controllers\PersonalMissionController::class, 'storeCvData'])->name('storeCvData');
+Route::get('/mission_cv_view', [App\Http\Controllers\PersonalMissionController::class, 'missionCvView'])->name('missionCvView');
+Route::put('/mission_cv_update/{id}', [App\Http\Controllers\PersonalMissionController::class, 'mission_cv_update'])->name('mission_cv_update');
 
 
