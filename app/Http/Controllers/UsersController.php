@@ -37,7 +37,7 @@ class UsersController extends Controller
     {
         $userData = $request->only('first_name', 'last_name', 'email', 'mobile', 'country', 'dob', 'user_type', 'password',);
         $userData['password'] = Hash::make($userData['password']);
-
+        dd($userData);
         Users::create($userData);
         return redirect()->route('login')->with(["success" => 'A new account created Successfully']);
     }
@@ -152,6 +152,7 @@ class UsersController extends Controller
     {
         return view('shop_agent_info');
     }
+
     public function messageAgent()
     {
         return view('message_agent');

@@ -242,7 +242,7 @@ class PersonalMissionController extends Controller
     public function mission_cv_update(Request $request): RedirectResponse
     {
         Users::where('id', $request->id)->update($request->only('full_name', 'father_name', 'mother_name', 'date_of_birth', 'about_me',
-            'present_address', 'city', 'region', 'zip_code', 'zip_code', 'email', 'social_link', 'mobile_number',
+            'present_address', 'city', 'region', 'zip_code', 'email', 'social_link', 'mobile_number',
             'emergency_contact', 'level_of_education', 'major_group', 'result_division_class', 'marks', 'years_of_passing',
             'institute_name', 'company_name', 'company_business', 'designation', 'department', 'responsibility', 'company_location',
             'employment_period', 'highlights'));
@@ -257,7 +257,11 @@ class PersonalMissionController extends Controller
 
     public function missionCvView()
     {
-        return view('personal_mission.personal_mission_cv_view');
+        $missionCv = Auth::user();
+        $missionCvUser = PersonalMission::where('user_id', $missionCv->id)->orderBy('created_at', 'DESC')->first();
+        $all_data = array($missionCv, $missionCvUser);
+        return view('personal_mission.personal_mission_cv_view', compact('missionCv'))->with(['all_data' => $all_data]);
+//        return view('personal_mission.personal_mission_cv_view');
     }
 
 }
