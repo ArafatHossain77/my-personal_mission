@@ -94,11 +94,11 @@
                         <div class="item mt-3">
                             <p>Contact:</p>
                             <input type="email" name="email" placeholder="type your email"/>
-                            <input type="number" name="social_link" placeholder="social link"/>
+                            <input type="text" name="social_link" placeholder="social link"/>
                             <div class="city-item">
                                 <input type="number" name="mobile_number"
                                        placeholder="Mobile number where you can be reached"/>
-                                <input type="text" name="emergency_contact" placeholder="Emergency Contact"/>
+                                <input type="number" name="emergency_contact" placeholder="Emergency Contact"/>
                             </div>
                         </div>
 
@@ -133,7 +133,7 @@
                                         <div class="city-item">
                                             <input type="text" name="company_business" placeholder="Company Business"/>
                                             <input type="text" name="designation" placeholder="Designation"/>
-                                            <input type="number" name="department" placeholder="Department"/>
+                                            <input type="text" name="department" placeholder="Department"/>
                                             <input type="text" name="responsibility" placeholder="Responsibilities"/>
                                             <input type="text" name="company_location" placeholder="Company Location"/>
                                         </div>
@@ -157,7 +157,7 @@
                                             </div>
                                         </div>
                                         <div class="btn-block mb-2 mt-3">
-                                            <button type="submit" name="add" class="text-bg-info p-3">SAVE INFO</button>
+                                            <button type="submit" name="storeCV" class="text-bg-info p-3">SAVE INFO</button>
                                         </div>
                                     </div>
                                 </div>

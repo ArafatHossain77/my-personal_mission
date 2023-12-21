@@ -106,7 +106,7 @@
                             <p>Contact:</p>
                             <input type="email" value="{{request()->email}}" name="email"
                                    placeholder="type your email"/>
-                            <input type="number" value="{{request()->social_link}}" name="social_link"
+                            <input type="text" value="{{request()->social_link}}" name="social_link"
                                    placeholder="social link"/>
                             <div class="city-item">
                                 <input type="number" value="{{request()->mobile_number}}" name="mobile_number"
@@ -154,7 +154,7 @@
                                                    name="company_business" placeholder="Company Business"/>
                                             <input type="text" value="{{request()->designation}}" name="designation"
                                                    placeholder="Designation"/>
-                                            <input type="number" value="{{request()->department}}" name="department"
+                                            <input type="text" value="{{request()->department}}" name="department"
                                                    placeholder="Department"/>
                                             <input type="text" value="{{request()->responsibility}}"
                                                    name="responsibility" placeholder="Responsibilities"/>

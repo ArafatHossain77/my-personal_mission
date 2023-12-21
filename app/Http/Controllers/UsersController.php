@@ -37,8 +37,8 @@ class UsersController extends Controller
     {
         $userData = $request->only('first_name', 'last_name', 'email', 'mobile', 'country', 'dob', 'user_type', 'password',);
         $userData['password'] = Hash::make($userData['password']);
-        dd($userData);
-        Users::create($userData);
+//        dd($userData);
+        User::create($userData);
         return redirect()->route('login')->with(["success" => 'A new account created Successfully']);
     }
 

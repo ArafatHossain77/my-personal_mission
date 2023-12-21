@@ -234,14 +234,15 @@ class PersonalMissionController extends Controller
             'emergency_contact', 'level_of_education', 'major_group', 'result_division_class', 'marks', 'years_of_passing',
             'institute_name', 'company_name', 'company_business', 'designation', 'department', 'responsibility', 'company_location',
             'employment_period', 'highlights');
+        dd($userCvData);
 
-        Users::create($userCvData);
+        PersonalMission::create($userCvData);
         return redirect()->route('missionCV')->with(["success" => 'A new Cover Latter created Successfully']);
     }
 
     public function mission_cv_update(Request $request): RedirectResponse
     {
-        Users::where('id', $request->id)->update($request->only('full_name', 'father_name', 'mother_name', 'date_of_birth', 'about_me',
+        personalMission::where('id', $request->id)->update($request->only('full_name', 'father_name', 'mother_name', 'date_of_birth', 'about_me',
             'present_address', 'city', 'region', 'zip_code', 'email', 'social_link', 'mobile_number',
             'emergency_contact', 'level_of_education', 'major_group', 'result_division_class', 'marks', 'years_of_passing',
             'institute_name', 'company_name', 'company_business', 'designation', 'department', 'responsibility', 'company_location',
@@ -249,9 +250,9 @@ class PersonalMissionController extends Controller
         return redirect()->route("missionCV")->with('success', 'Your info updated   successfully in Database/ check it');
     }
 
-    public function destroy(int $id): RedirectResponse
+    public function destroyResume(int $id): RedirectResponse
     {
-        Users::where('id', $id)->delete();
+        PersonalMission::where('id', $id)->delete();
         return redirect()->route("registration")->with('success', 'Your account  deleted  successfully form our server');
     }
 
