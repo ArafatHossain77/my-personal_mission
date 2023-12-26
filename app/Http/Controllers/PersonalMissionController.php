@@ -234,7 +234,7 @@ class PersonalMissionController extends Controller
             'emergency_contact', 'level_of_education', 'major_group', 'result_division_class', 'marks', 'years_of_passing',
             'institute_name', 'company_name', 'company_business', 'designation', 'department', 'responsibility', 'company_location',
             'employment_period', 'highlights');
-        dd($userCvData);
+//        dd($userCvData);
 
         PersonalMission::create($userCvData);
         return redirect()->route('missionCV')->with(["success" => 'A new Cover Latter created Successfully']);
@@ -263,6 +263,12 @@ class PersonalMissionController extends Controller
         $all_data = array($missionCv, $missionCvUser);
         return view('personal_mission.personal_mission_cv_view', compact('missionCv'))->with(['all_data' => $all_data]);
 //        return view('personal_mission.personal_mission_cv_view');
+    }
+    public  function editPersonalCv()
+    {
+        $CvAllData = Users::latest()->get();
+        return view('personal_mission.edit_personal_cv_info', compact('CvAllData'));
+
     }
 
 }

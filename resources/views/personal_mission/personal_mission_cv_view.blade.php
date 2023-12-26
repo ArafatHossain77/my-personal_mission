@@ -53,6 +53,18 @@
             </div>
         </nav>
     </div>
+    <div class="btn-group mt-5 m-5">
+        <button class="btn btn-info dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+            More Options
+        </button>
+        <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">Print</a></li>
+            <li><a class="dropdown-item" href="#">PDF</a></li>
+            <li><a class="dropdown-item" href="#">CSV</a></li>
+        </ul>
+    </div>
+
+
     <div class="container-fluid mt-3 mb-4">
         <div class="container mt-5 py-5 h-100">
             <div class="row d-flex justify-content-center align-items-center h-100">
@@ -203,7 +215,7 @@
                                             </div>
                                             <div class="container">
                                                 <div class="buttons">
-                                                    <a href="{{route('action',
+                                                    <a href="{{route('editPersonalCv',
                                                                                                                                 [
                                                                                                                                     'id'=>$missionCv->id,
                                                                                                                                     'full_name'=>$missionCv->full_name,
