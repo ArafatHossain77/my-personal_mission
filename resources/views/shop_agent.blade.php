@@ -14,70 +14,7 @@
 <div class="container">
     <nav class="navbar bg-primary" data-bs-theme="dark">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">User Profile</a>
-            @if(isset($all_data[1]->personal_mission) && $all_data[1]->personal_mission != null)
-                @if(now()->format('d') > 20 && $all_data[1]->mission_complete == 0)
-                    <div class="text-center">
-                        <button type="button" class="btn btn-success">
-                            <a href="{{route('personalMissionUserMissionEditDashboard')}}"
-                               class="navbar-brand inline_block font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Write
-                                This month's Mission Percentage Out Of 100</a>
-                        </button>
-                    </div>
-                @else
-                    <div class="text-center">
-                        <button type="button" hidden class="btn btn-success">
-                            <a href="{{route('personalMissionUser')}}"
-                               class="navbar-brand inline_block font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Write
-                                This Month's Personal Mission</a>
-                        </button>
-                    </div>
-                @endif
-            @else
-                @if(now()->format('d') > 20)
-                    <div class="text-center">
-                        <button type="button" hidden class="btn btn-success">
-                            <a href="{{route('personalMissionUser')}}"
-                               class="navbar-brand inline_block font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Write
-                                This Month's Personal Mission</a>
-                        </button>
-                    </div>
-                @else
-                    <div class="text-center">
-                        <button type="button" class="btn btn-success">
-                            <a href="{{route('personalMissionUser')}}"
-                               class="navbar-brand inline_block font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Write
-                                This Month's Personal Mission</a>
-                        </button>
-                    </div>
-                @endif
-            @endif
-
-
-
-
-
-            {{--                @if(isset($all_data[1]['personal_mission'&&'mission_complete']) && $all_data[1]['personal_mission'&&'mission_complete'] != null)--}}
-            {{--                    <div class="text-center">--}}
-            {{--                        <button type="button" hidden class="btn btn-success">--}}
-            {{--                            <a href="{{route('personalMissionUser')}}" class="navbar-brand inline_block font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Write This Month's Mission Percentage</a>--}}
-            {{--                        </button>--}}
-            {{--                    </div>--}}
-            {{--                @else--}}
-            {{--                    @if(now()->format('d') > 20)--}}
-            {{--                        <div class="text-center">--}}
-            {{--                            <button type="button" hidden class="btn btn-success">--}}
-            {{--                                <a href="{{route('personalMissionUser')}}" class="navbar-brand inline_block font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Write This Month's Mission Percentage</a>--}}
-            {{--                            </button>--}}
-            {{--                        </div>--}}
-            {{--                    @else--}}
-            {{--                        <div class="text-center">--}}
-            {{--                            <button type="button" class="btn btn-success">--}}
-            {{--                                <a href="{{route('personalMissionUser')}}" class="navbar-brand inline_block font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Write This Month's Mission Percentage</a>--}}
-            {{--                            </button>--}}
-            {{--                        </div>--}}
-            {{--                    @endif--}}
-            {{--                @endif--}}
+            <a class="navbar-brand" href="#">Agent Profile</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                     aria-expanded="false" aria-label="Toggle navigation">
@@ -89,18 +26,8 @@
                         <a class="nav-link active" aria-current="page" href="{{route('personalMissionUserView')}}">Personal
                             Mission</a>
                     </li>
-
                     <li class="nav-item">
-                        <a class="nav-link" href="{{route('timeline')}}">Timeline</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{route('missionCV')}}">Personal Resume</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{route('shopAgentInfo')}}">Shop Agent Data</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{route('message')}}">Messenger</a>
+                        <a class="nav-link" href="{{route('shopAgentInfo')}}">Shop Agent Admin</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
@@ -145,7 +72,7 @@
                             </div>
                             <div class="col-md-8">
                                 <div class="card-body p-4">
-                                    <h3>User Profile</h3>
+                                    <h3>Agent Profile</h3>
                                     <hr class="mt-0 mb-4">
                                     <div class="row pt-1">
                                         <div class="col-6 mb-3">
@@ -242,6 +169,7 @@
                                                                                     ])}}">
                                                         <button type="button" class="btn btn-info">Edit</button>
                                                     </a>
+                                                    {{--                                                        <div class="div mt-2">--}}
                                                     <a
                                                         href="#"
                                                         onclick="event.preventDefault();document.getElementById('delete-to').submit();"
@@ -257,8 +185,6 @@
                                                     </form>
                                                 </div>
                                             </div>
-                                            <div>
-                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -268,8 +194,8 @@
                 </div>
             </div>
         </div>
-    </section>
 </div>
+</section>
 </div>
 </body>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
@@ -280,3 +206,4 @@
         crossorigin="anonymous"></script>
 </body>
 </html>
+
