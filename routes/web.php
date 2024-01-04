@@ -70,7 +70,7 @@ Route::put('/personalMissionUserMissionUpdate/{id}', [App\Http\Controllers\Perso
 Route::get('/mission_report', [App\Http\Controllers\PersonalMissionController::class, 'mission_report'])->name('mission_report')->middleware('auth', 'MissionReport');
 Route::get('/mission_complete', [App\Http\Controllers\PersonalMissionController::class, 'mission_complete'])->name('mission_complete')->middleware('auth');
 
-//shop agent for dalivery
+//shop agent for delivery
 Route::get('/shop_agent', [App\Http\Controllers\UsersController::class, 'shopAgent'])->name('shopAgent');
 Route::get('/shop_agent-info_view', [App\Http\Controllers\UsersController::class, 'shopAgentInfo'])->name('shopAgentInfo');
 Route::get('/message_agent', [App\Http\Controllers\UsersController::class, 'messageAgent'])->name('messageAgent');
@@ -84,4 +84,5 @@ Route::put('/mission_cv_update/{id}', [App\Http\Controllers\PersonalMissionContr
 Route::get('/edit_resume', [App\Http\Controllers\PersonalMissionController::class, 'editResume'])->name('editResume');
 Route::delete('/delete_resume/{id}', [App\Http\Controllers\PersonalMissionController::class, 'destroyResume'])->name('destroyResume');
 Route::get('/edit_personal_cv', [App\Http\Controllers\PersonalMissionController::class, 'editPersonalCv'])->name('editPersonalCv');
+Route::get('/export_pdf', [App\Http\Controllers\PersonalMissionController::class, 'exportPDF'])->name('exportPDF');
 

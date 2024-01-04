@@ -93,8 +93,21 @@
                                 <input type="text" name="region" value="{{request()->region}}" placeholder="Region"/>
                                 <input type="number" name="zip_code" value="{{request()->zip_code}}"
                                        placeholder="Postal / Zip code"/>
-                                <input type="text" name="country" value="{{request()->country}}" placeholder="Country"/>
+                                <input type="text" name="country" value="{{request()->country}}" placeholder="country"/>
+{{--                                <div class="form-outline mb-2 mt-2">--}}
+{{--                                    <label class="form-label" for="form3Example1cg">Country</label>--}}
+{{--                                    <select class="form-control" value="{{request()->country}}" name="country">--}}
+{{--                                        <option value="">Select</option>--}}
+{{--                                        <option>Bangladesh</option>--}}
+{{--                                        <option>India</option>--}}
+{{--                                        <option>Japan</option>--}}
+{{--                                        <option>Australia</option>--}}
+{{--                                        <option>England</option>--}}
+{{--                                        <option>USA</option>--}}
+{{--                                        <option>China</option>--}}
+{{--                                    </select>--}}
                             </div>
+
                         </div>
                         <div class="item mt-3">
                             <p>Contact:</p>

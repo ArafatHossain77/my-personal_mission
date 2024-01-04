@@ -29,6 +29,7 @@ class personalMission extends Model
         'city',
         'region',
         'zip_code',
+        'country',
         'email',
         'social_link',
         'mobile_number',

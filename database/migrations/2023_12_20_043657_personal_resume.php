@@ -21,6 +21,7 @@ return new class extends Migration {
             $table->string('city');
             $table->string('region');
             $table->string('zip_code');
+            $table->string('Country');
             $table->string('social_link');
             $table->string('mobile_number');
             $table->string('email');
@@ -61,6 +62,7 @@ return new class extends Migration {
                 'city',
                 'region',
                 'zip_code',
+                'country',
                 'email',
                 'social_link',
                 'mobile_number',

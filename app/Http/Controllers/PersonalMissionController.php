@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\personalMission;
 use App\Models\Users;
+use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -230,11 +231,11 @@ class PersonalMissionController extends Controller
     public function storeCvData(Request $request): RedirectResponse
     {
         $userCvData = $request->only('full_name', 'father_name', 'mother_name', 'date_of_birth', 'about_me',
-            'present_address', 'city', 'region', 'zip_code', 'zip_code', 'email', 'social_link', 'mobile_number',
+            'present_address', 'city', 'region', 'zip_code', 'country', 'email', 'social_link', 'mobile_number',
             'emergency_contact', 'level_of_education', 'major_group', 'result_division_class', 'marks', 'years_of_passing',
             'institute_name', 'company_name', 'company_business', 'designation', 'department', 'responsibility', 'company_location',
             'employment_period', 'highlights');
-//        dd($userCvData);
+        dd($userCvData);
 
         PersonalMission::create($userCvData);
         return redirect()->route('missionCV')->with(["success" => 'A new Cover Latter created Successfully']);
@@ -243,7 +244,7 @@ class PersonalMissionController extends Controller
     public function mission_cv_update(Request $request): RedirectResponse
     {
         personalMission::where('id', $request->id)->update($request->only('full_name', 'father_name', 'mother_name', 'date_of_birth', 'about_me',
-            'present_address', 'city', 'region', 'zip_code', 'email', 'social_link', 'mobile_number',
+            'present_address', 'city', 'region', 'zip_code','Country', 'email', 'social_link', 'mobile_number',
             'emergency_contact', 'level_of_education', 'major_group', 'result_division_class', 'marks', 'years_of_passing',
             'institute_name', 'company_name', 'company_business', 'designation', 'department', 'responsibility', 'company_location',
             'employment_period', 'highlights'));
@@ -268,6 +269,21 @@ class PersonalMissionController extends Controller
     {
         $CvAllData = Users::latest()->get();
         return view('personal_mission.edit_personal_cv_info', compact('CvAllData'));
+
+    }
+    public function exportPDF()
+    {
+        $data1 = [
+            'name' => 'AKASH',
+            'date' => '2024-01-02'
+        ];
+        $user = Auth::user();
+        $user = json_decode(json_encode($user), true);
+        $user = [
+            'user' => $user
+        ];
+        $pdf = Pdf::loadView('personal_mission.invoice', $user);
+        return $pdf->download('invoice.pdf');
 
     }
 

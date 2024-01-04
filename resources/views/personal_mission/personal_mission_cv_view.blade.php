@@ -12,7 +12,6 @@
 </head>
 <body>
 <section class="vh-100 bg-image">
-
     <div class="container">
         <nav class="navbar bg-primary" data-bs-theme="dark">
             <div class="container-fluid">
@@ -52,19 +51,17 @@
                 </div>
             </div>
         </nav>
+        <div class="btn-group mt-5 m-5">
+            <button class="btn btn-info dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                More Options
+            </button>
+            <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#">Print</a></li>
+                <li><a class="dropdown-item" href="{{route('exportPDF')}}">PDF</a></li>
+                <li><a class="dropdown-item" href="#">CSV</a></li>
+            </ul>
+        </div>
     </div>
-    <div class="btn-group mt-5 m-5">
-        <button class="btn btn-info dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-            More Options
-        </button>
-        <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">Print</a></li>
-            <li><a class="dropdown-item" href="#">PDF</a></li>
-            <li><a class="dropdown-item" href="#">CSV</a></li>
-        </ul>
-    </div>
-
-
     <div class="container-fluid mt-3 mb-4">
         <div class="container mt-5 py-5 h-100">
             <div class="row d-flex justify-content-center align-items-center h-100">
@@ -249,20 +246,21 @@
                                                                                                                                 ])}}">
                                                         <button type="button" class="btn btn-info">Edit</button>
                                                     </a>
-                                                    <a
-                                                        href="#"
-                                                        onclick="event.preventDefault();document.getElementById('delete-to').submit();"
-                                                    >
-                                                        <button onclick="myFunction()" type="button"
-                                                                class="btn btn-danger">Delete
-                                                        </button>
-                                                    </a>
-                                                    <form id="delete-to"
-                                                          action="{{route('destroyResume', $missionCv->id)}}"
-                                                          method="POST" class="d-none">
-                                                        @method('delete')
-                                                        @csrf
-                                                    </form>
+                                                    {{--                                                    <a--}}
+                                                    {{--                                                        href="#"--}}
+                                                    {{--                                                        onclick="event.preventDefault();document.getElementById('delete-to').submit();"--}}
+                                                    {{--                                                    >--}}
+                                                    {{--                                                        <button onclick="myFunction()" type="button"--}}
+                                                    {{--                                                                class="btn btn-danger">Delete--}}
+                                                    {{--                                                        </button>--}}
+                                                    {{--                                                    </a>--}}
+                                                    {{--                                                    <form id="delete-to"--}}
+                                                    {{--                                                          action="{{route('destroyResume', $missionCv->id)}}"--}}
+                                                    {{--                                                          method="POST" class="d-none">--}}
+                                                    {{--                                                        @method('delete')--}}
+                                                    {{--                                                        @csrf--}}
+                                                    {{--                                                    </form>--}}
+
                                                 </div>
                                             </div>
                                         </div>

@@ -94,7 +94,7 @@
                         <a class="nav-link" href="{{route('timeline')}}">Timeline</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{route('missionCV')}}">CV Mission</a>
+                        <a class="nav-link" href="{{route('missionCV')}}">Personal Resume</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{route('shopAgentInfo')}}">Shop Agent Data</a>
