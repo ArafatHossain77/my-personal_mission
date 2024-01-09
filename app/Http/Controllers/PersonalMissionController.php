@@ -235,7 +235,7 @@ class PersonalMissionController extends Controller
             'emergency_contact', 'level_of_education', 'major_group', 'result_division_class', 'marks', 'years_of_passing',
             'institute_name', 'company_name', 'company_business', 'designation', 'department', 'responsibility', 'company_location',
             'employment_period', 'highlights');
-        dd($userCvData);
+//        dd($userCvData);
 
         PersonalMission::create($userCvData);
         return redirect()->route('missionCV')->with(["success" => 'A new Cover Latter created Successfully']);
