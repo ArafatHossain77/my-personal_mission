@@ -75,14 +75,23 @@ Route::get('/shop_agent', [App\Http\Controllers\UsersController::class, 'shopAge
 Route::get('/shop_agent-info_view', [App\Http\Controllers\UsersController::class, 'shopAgentInfo'])->name('shopAgentInfo');
 Route::get('/message_agent', [App\Http\Controllers\UsersController::class, 'messageAgent'])->name('messageAgent');
 
-//mission CV Personal Mission Controller
-Route::get('/mission_cv', [App\Http\Controllers\PersonalMissionController::class, 'missionCV'])->name('missionCV');
-Route::get('/mission_cv_info', [App\Http\Controllers\PersonalMissionController::class, 'missionCvInfo'])->name('missionCvInfo');
-Route::post('/store_Cv_Data', [App\Http\Controllers\PersonalMissionController::class, 'storeCvData'])->name('storeCvData');
-Route::get('/mission_cv_view', [App\Http\Controllers\PersonalMissionController::class, 'missionCvView'])->name('missionCvView');
-Route::put('/mission_cv_update/{id}', [App\Http\Controllers\PersonalMissionController::class, 'mission_cv_update'])->name('mission_cv_update');
-Route::get('/edit_resume', [App\Http\Controllers\PersonalMissionController::class, 'editResume'])->name('editResume');
-Route::delete('/delete_resume/{id}', [App\Http\Controllers\PersonalMissionController::class, 'destroyResume'])->name('destroyResume');
-Route::get('/edit_personal_cv', [App\Http\Controllers\PersonalMissionController::class, 'editPersonalCv'])->name('editPersonalCv');
+//mission personal Resume controller Route
 Route::get('/export_pdf', [App\Http\Controllers\PersonalMissionController::class, 'exportPDF'])->name('exportPDF');
+
+Route::get('/personal_resume_info', [App\Http\Controllers\PersonalResumeController::class, 'personalResumeInfo'])->name('personalResumeInfo');
+
+//store resume data with 4 different controllers
+Route::post('/store_resume_info_Data', [App\Http\Controllers\PersonalInfoResumeController::class, 'storeResumeInfoData'])->name('storeResumeInfoData');
+Route::post('/store_resume_contact_Data', [App\Http\Controllers\ContactInfoResumeController::class, 'storeResumeContactData'])->name('storeResumeContactData');
+Route::post('/store_resume_education_Data', [App\Http\Controllers\EducationInfoResumeController::class, 'storeResumeEducationData'])->name('storeResumeEducationData');
+Route::post('/store_resume_experience_Data', [App\Http\Controllers\ExperienceInfoResumeController::class, 'storeResumeExperienceData'])->name('storeResumeExperienceData');
+
+//resume view file
+Route::get('/personal_resume_view', [App\Http\Controllers\PersonalResumeController::class, 'personalResumeView'])->name('personalResumeView');
+Route::get('/personal_resume_output', [App\Http\Controllers\PersonalResumeController::class, 'personalResumeOutput'])->name('personalResumeOutput');
+Route::get('/personal_resume_edit', [App\Http\Controllers\PersonalResumeController::class, 'EditPersonalResume'])->name('EditPersonalResume');
+
+
+
+
 

@@ -94,7 +94,7 @@
                         <a class="nav-link" href="{{route('timeline')}}">Timeline</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{route('missionCV')}}">Personal Resume</a>
+                        <a class="nav-link" href="{{route('personalResumeView')}}">Personal Resume</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{route('shopAgentInfo')}}">Shop Agent Data</a>
@@ -178,52 +178,6 @@
                                         </div>
                                     </div>
                                     <hr class="mt-0 mb-3">
-                                    {{--                                        <div class="col-auto">--}}
-                                    {{--                                            <span id="textExample2" class="form-text"> Edit & Update access only for Admin.Do you want sent request to Admin for Update info? </span>--}}
-                                    {{--                                        </div>--}}
-
-                                    {{--                                        <h6>Edit & Update access only for Admin</h6>--}}
-                                    {{--                                        <hr class="mt-0 mb-2">--}}
-                                    {{--                                        <div class="row col-4">--}}
-                                    {{--                                            <h4 class="fw-bold text-center mt-3"></h4>--}}
-                                    {{--                                            <form class=" bg-white px-4" action="{{route('admin_dashboard')}}">--}}
-                                    {{--                                                <p class="fw-bold">Send Request</p>--}}
-                                    {{--                                        <h7>Do you want sent request to Admin for Update info?</h7>--}}
-                                    {{--                                                <div class="form-check mb-2">--}}
-                                    {{--                                                    <input class="form-check-input" type="radio" name="exampleForm" id="radioExample1" />--}}
-                                    {{--                                                    <label class="form-check-label" for="radioExample1">--}}
-                                    {{--                                                       Yes--}}
-                                    {{--                                                    </label>--}}
-                                    {{--                                                </div>--}}
-                                    {{--                                                <div class="form-check mb-2">--}}
-                                    {{--                                                    <input class="form-check-input" type="radio" name="exampleForm" id="radioExample2" />--}}
-                                    {{--                                                    <label class="form-check-label" for="radioExample2">--}}
-                                    {{--                                                        No--}}
-                                    {{--                                                    </label>--}}
-                                    {{--                                                </div>--}}
-                                    {{--                                            </form>--}}
-                                    {{--                                            <div class="container">--}}
-                                    {{--                                                <div class="buttons">--}}
-                                    {{--                                                    <a href="{{route('admin_dashboard')}}">--}}
-                                    {{--                                                        <a--}}
-                                    {{--                                                            href="#"--}}
-                                    {{--                                                            onclick="event.preventDefault();document.getElementById('request-to').submit();"--}}
-                                    {{--                                                        >--}}
-                                    {{--                                                        <button id="demo" onclick="myFunction()" type="submit" class="btn btn-primary">Send Request</button>--}}
-                                    {{--                                                    </a>--}}
-                                    {{--                                                        <script>--}}
-                                    {{--                                                            function myFunction() {--}}
-                                    {{--                                                                // alert("Are you sure to access Admin DashBoard ?");--}}
-                                    {{--                                                                let text = "Are you sure to access Admin DashBoard ?";--}}
-                                    {{--                                                                if (confirm(text) == true) {--}}
-                                    {{--                                                                    text = "You pressed OK!";--}}
-                                    {{--                                                                } else {--}}
-                                    {{--                                                                    text = "You canceled!";--}}
-                                    {{--                                                                }--}}
-                                    {{--                                                                document.getElementById("demo").innerHTML = text;--}}
-                                    {{--                                                                // window.confirm("これが確認ダイアログです。");--}}
-                                    {{--                                                            }--}}
-                                    {{--                                                        </script>--}}
                                     <div class="row pt-4 p-4 mb-2">
                                         <div class="btn-toolbar justify-content-between" role="toolbar"
                                              aria-label="Toolbar with button groups">
